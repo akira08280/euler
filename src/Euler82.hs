@@ -1,0 +1,51 @@
+{--
+  https://projecteuler.net/problem=82
+--}
+
+module Euler82 (e82_solve) where
+
+import Control.Arrow ((***))
+import Data.Array ((!), bounds, elems, inRange, listArray, range, Array)
+import Data.Maybe (fromJust)
+import Data.Graph.Inductive (Gr)
+import Data.Graph.Inductive.Graph (UNode, LEdge, mkGraph)
+import Data.Graph.Inductive.Query.SP (spTree)
+import Data.Graph.Inductive.Internal.RootPath (getDistance)
+import Data.List (minimumBy)
+import Data.Ord (comparing)
+import System.IO (readFile)
+
+e82_solve :: IO Int
+e82_solve = do
+  file <- readFile "src/resources/p082_matrix.txt"
+  let
+    list = map (\line -> read ("[" ++ line ++ "]") :: [Int]) . lines $ file
+    side = length $ list !! 0
+    mx = listArray ((0,0), (pred side, pred side)) . concat $ list
+    graph = genGraph mx side
+    from = [(i,0) | i <- [0..(pred side)]]
+    to = [(i, pred side) | i <- [0..(pred side)]]
+    spTrees = [(,) f tree | f <- from, let tree = spTree (fromIxToNode f side) graph]
+    distances = [(,) (f, t) (distance + (mx ! f)) | (f, tree) <- spTrees,
+                                                    t <- to,
+                                                    let distance = fromJust $ getDistance (fromIxToNode t side) tree]
+  return . snd . minimumBy (comparing snd) $ distances
+
+genNodes :: Int -> [UNode]
+genNodes side = zip [0..(side ^ 2 - 1)] . cycle $ [()]
+
+genEdges :: Array (Int, Int) Int -> Int -> [LEdge Int]
+genEdges mx side = [edge | i <- range . bounds $ mx,
+                           shift <- shifts,
+                           let i' = shift i,
+                           inRange (bounds mx) i',
+                           let edge = (fromIxToNode i side, fromIxToNode i' side, mx ! i')]
+
+shifts :: [(Int, Int) -> (Int, Int)]
+shifts = [succ *** id, id *** succ, pred *** id]
+
+genGraph :: Array (Int, Int) Int -> Int -> Gr () Int
+genGraph mx side = mkGraph (genNodes side) (genEdges mx side)
+
+fromIxToNode :: (Int, Int) -> Int -> Int
+fromIxToNode (row, col) side = (+ col) . (* side) $ row

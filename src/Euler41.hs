@@ -14,22 +14,8 @@
 
 module Euler41 (e41_solve) where
 
-import Data.Bits (setBit)
-import Data.Char (digitToInt)
 import Data.Numbers.Primes (isPrime)
+import Common (digit, isPandigital)
 
 e41_solve :: Int
 e41_solve = head . filter (flip isPandigital [1..7]) . filter isPrime $ [7654321,7654319..1234567]
-
-isPandigital :: Int -> [Int] -> Bool
-isPandigital n a
-  | digit n /= length a = False
-  | otherwise = mask a == mask n'
-  where
-    n' = map digitToInt $ show n
-
-mask :: [Int] -> Int
-mask = foldr (\x y -> setBit y x) 0
-
-digit :: Int -> Int
-digit = length . show

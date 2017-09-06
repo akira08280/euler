@@ -23,6 +23,7 @@ module Euler66 (e66_solve) where
 
 import Data.Ord (comparing)
 import Data.List (maximumBy)
+import Common (isSquare)
 
 e66_solve :: Integral a => a
 e66_solve = 
@@ -46,6 +47,3 @@ minimumPell s = fst .
         a' = floor $ (fromIntegral (a0 + m')) / (fromIntegral d')
         h  = a' * h1 + h2
         k  = a' * k1 + k2
-
-isSquare :: Integral a => a -> Bool
-isSquare x = (== x) . (^ 2) . truncate . sqrt . fromIntegral $ x

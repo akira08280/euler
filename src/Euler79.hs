@@ -29,6 +29,7 @@ module Euler79 (e79_solve) where
 
 import Control.Monad.State (put, get, evalState, State)
 import Data.Char (digitToInt)
+import Data.Digits (unDigits)
 import Data.List (nub, sortBy)
 import Data.Map (Map, findWithDefault)
 import Data.Ord (comparing)
@@ -56,9 +57,7 @@ findPasscode' keylog = do
   mapM_ up keylog
   get >>= (\m -> return (convert $ Map.toList m))
   where
-    convert = fromDigits .
-              map fst .
-              sortBy (comparing $ Set.size . snd)
+    convert = unDigits 10 . map fst . sortBy (comparing $ Set.size . snd)
 
 -- update State set left side number of oneself
 up :: [Int] -> State (Map Int (Set Int)) ()
@@ -77,9 +76,3 @@ insert' self left = do
   let
     s = findWithDefault Set.empty self m
   put (Map.insert self (Set.insert left s) m)
-
--- from digits to integer ([1,2,3,4] -> 1234)
-fromDigits :: Integral a => [a] -> a
-fromDigits = foldl addDigit 0
-  where
-    addDigit num d = 10 * num + d

@@ -22,26 +22,11 @@ module Euler38 (e38_solve) where
 
 import Data.Bits (setBit)
 import Data.Char (digitToInt)
+import Common (digit, isPandigital, concatIntArray)
 
 e38_solve :: Int
 e38_solve =
   let
-    a = head . filter (\e -> isPandigital (concat' [e, e * 2]) [1..9]) $ [9387,9386..]
+    a = head . filter (\e -> isPandigital (concatIntArray [e, e * 2]) [1..9]) $ [9387,9386..]
   in
-    concat' [a, a * 2]
-
-concat' :: [Int] -> Int
-concat' ns = read . concat $ map show ns
-
-isPandigital :: Int -> [Int] -> Bool
-isPandigital n a
-  | digit n /= length a = False
-  | otherwise = mask a == mask n'
-  where
-    n' = map digitToInt $ show n
-
-mask :: [Int] -> Int
-mask = foldr (\x y -> setBit y x) 0
-
-digit :: Int -> Int
-digit = length . show
+    concatIntArray [a, a * 2]

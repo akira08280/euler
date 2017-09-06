@@ -7,6 +7,7 @@
 
 module Euler93 (e93_solve) where
 
+import Data.Digits (unDigits)
 import Data.List (nub, sort, sortBy)
 import Data.Ord (comparing)
 
@@ -66,11 +67,6 @@ countSeq ns = length . filter (\e -> fst e == snd e) $ zip [1..] seq
   where
     seq = convert ns
 
-fromDigits :: Integral a => [a] -> a
-fromDigits = foldl addDigit 0
-  where
-    addDigit num d = 10 * num + d
-
 solve :: [([Int], Int)]
 solve = do
   a <- [1..9]
@@ -83,4 +79,4 @@ solve = do
   return (ans, seq)
 
 e93_solve :: Int
-e93_solve = fromDigits . fst . head . sortBy (flip (comparing snd)) $ solve
+e93_solve = unDigits 10 . fst . head . sortBy (flip (comparing snd)) $ solve

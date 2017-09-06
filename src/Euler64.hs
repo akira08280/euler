@@ -7,6 +7,8 @@
 
 module Euler64 (e64_solve) where
 
+import Common (third, isSquare)
+
 e64_solve :: Int
 e64_solve = length . filter (odd . length . continuedFraction) $ [1..10 ^ 4]
 
@@ -21,9 +23,3 @@ continuedFraction s
         m' = d * a - m
         d' = (s - m' ^ 2) `div` d
         a' = floor $ (fromIntegral (a0 + m')) / (fromIntegral d')
-
-isSquare :: Integral a => a -> Bool
-isSquare x = (== x) . (^ 2) . truncate . sqrt . fromIntegral $ x
-
-third :: (a, b, c) -> c
-third (_, _, c) = c

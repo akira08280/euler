@@ -6,6 +6,7 @@ module Euler35 (e35_solve) where
 
 import Text.Regex.Posix ((=~))
 import Data.Numbers.Primes (isPrime, primes)
+import Common (digit)
 
 e35_solve :: Int
 e35_solve =
@@ -27,6 +28,3 @@ circle n = scanl circle' n d
       where
         a = divMod acc 10
         r = snd a * 10 ^ x + fst a
-
-digit :: Int -> Int
-digit = length . show

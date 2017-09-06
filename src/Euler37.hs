@@ -18,6 +18,7 @@ module Euler37 (e37_solve) where
 
 import Data.Numbers.Primes (isPrime)
 import qualified Data.Set as Set (Set, elems, fromList, intersection, union, empty)
+import Common (digit)
 
 e37_solve :: Int
 e37_solve = sum . make $ [2,3,5,7]
@@ -41,6 +42,3 @@ right (p:ps) = map (\e -> p * 10 + e) [1,3,7,9] ++ right ps
 left :: [Int] -> [Int]
 left []     = []
 left (p:ps) = map (\e -> e * 10 ^ (digit p) + p) [1..9] ++ left ps
-
-digit :: Int -> Int
-digit = length . show

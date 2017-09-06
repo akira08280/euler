@@ -20,13 +20,10 @@
 module Euler43 (e43_solve) where
 
 e43_solve :: Int
-e43_solve = sum . map concat' $ pandigitals
+e43_solve = sum . map (\p -> (read . concat $ p) :: Int) $ pandigitals
 
 pandigitals :: [[String]]
 pandigitals = do
   a <- ["1","4"]
   b <- ["30952867", "60357289", "06357289"]
   return [a, b]
-
-concat' :: [[Char]] -> Int
-concat' = read . concat

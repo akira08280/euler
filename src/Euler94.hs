@@ -40,6 +40,8 @@
 
 module Euler94 (e94_solve) where
 
+import Common (third)
+
 e94_solve :: Int
 e94_solve = sum . takeWhile (< 10 ^ 9) . map third . iterate next $ (2, 1, 0)
 
@@ -51,6 +53,3 @@ next (x, y, _) = (x', y', length)
     length
       | x `mod` 3 == 2 = 2 * x' - 2
       | otherwise = 2 * x' + 2
-
-third :: (a, b, c) -> c
-third (_, _, c) = c

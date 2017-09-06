@@ -7,6 +7,8 @@
 
 module Euler63 (e63_solve) where
 
+import Common (digit)
+
 e63_solve :: Int
 e63_solve = length nthPower
 
@@ -15,6 +17,3 @@ nthPower = do
   n <- [1..9]
   p <- takeWhile (\p -> (== p) . digit . (n ^) $ p) [1..]
   return (n, p, n ^ p)
-
-digit :: Integer -> Int
-digit = length . show

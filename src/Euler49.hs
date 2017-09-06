@@ -7,9 +7,10 @@ module Euler49 (e49_solve) where
 import Control.Monad (guard)
 import Data.List (sort)
 import Data.Numbers.Primes (isPrime)
+import Common (concatIntArray)
 
 e49_solve :: Int
-e49_solve = head . map concat' $ terms
+e49_solve = head . map concatIntArray $ terms
 
 terms :: [[Int]] 
 terms = do
@@ -20,6 +21,3 @@ terms = do
   guard (sort (show a) == sort (show b))
   guard (sort (show b) == sort (show c))
   return [a, b, c]
-
-concat' :: [Int] -> Int
-concat' ns = read . concat $ map show ns

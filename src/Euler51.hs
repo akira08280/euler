@@ -22,6 +22,7 @@ import Control.Monad (guard)
 import Data.Char (intToDigit)
 import Data.String.Utils (replace)
 import Data.Numbers.Primes (isPrime, primes)
+import Common (digit)
 
 e51_solve :: Int
 e51_solve = head family
@@ -46,6 +47,3 @@ countBy c n = length . filter (\d -> d == intToDigit c) $ show n
 
 isSameDigit :: Int -> Int -> Bool
 isSameDigit a b = digit a == digit b
-
-digit :: Int -> Int
-digit = length . show

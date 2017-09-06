@@ -5,12 +5,14 @@
 module Euler98 (e98_solve) where
 
 import Control.Monad (guard)
+import Data.Digits (unDigits)
 import Data.Function (on)
 import Data.List (intercalate, nub, sort, sortBy, groupBy, permutations)
 import Data.Maybe (fromJust)
 import qualified Data.Map as Map
 import Data.Ord (comparing)
 import System.IO (readFile)
+import Common (isSquare)
 
 e98_solve :: IO Int
 e98_solve = do
@@ -34,18 +36,10 @@ anagrams pair = do
     s = Map.size m
   c <- choose s [1..9]
   let
-    a' = fromDigits . map (\e -> c !! (fromJust . Map.lookup e $ m)) $ a
-    b' = fromDigits . map (\e -> c !! (fromJust . Map.lookup e $ m)) $ b
+    a' = unDigits 10 . map (\e -> c !! (fromJust . Map.lookup e $ m)) $ a
+    b' = unDigits 10 . map (\e -> c !! (fromJust . Map.lookup e $ m)) $ b
   guard (isSquare a' && isSquare b')
   return (max a' b')
-
-fromDigits :: Integral a => [a] -> a
-fromDigits = foldl addDigit 0
-  where
-    addDigit num d = 10 * num + d
-
-isSquare :: Integral a => a -> Bool
-isSquare x = (== x) . (^ 2) . truncate . sqrt . fromIntegral $ x
 
 choose :: Int -> [Int] -> [[Int]]
 choose n list = concatMap permutations $ choose' list []

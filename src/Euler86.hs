@@ -49,6 +49,7 @@ module Euler86 (e86_solve) where
 import Control.Monad (guard)
 import Data.Maybe (fromJust)
 import Data.List (findIndex)
+import Common (isSquare)
 
 e86_solve :: Int
 e86_solve = fromJust . findIndex (> 10 ^ 6) . scanl1 (+) . map (sum . shortest) $ [0..]
@@ -61,6 +62,3 @@ shortest m = do
     return (s `div` 2)
   else
     return (m - (s - 1) `div` 2)
-
-isSquare :: Integral a => a -> Bool
-isSquare x = (== x) . (^ 2) . truncate . sqrt . fromIntegral $ x

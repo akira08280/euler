@@ -14,6 +14,7 @@
 module Euler57 (e57_solve) where
 
 import Data.Ratio ((%), numerator, denominator, Ratio)
+import Common (digit)
 
 e57_solve :: Int
 e57_solve = length . filter comp . take (10 ^ 3) . map succ . iterate continuedFraction $ (1 % 2)
@@ -23,6 +24,3 @@ continuedFraction x = 1 / (2 + x)
 
 comp :: Ratio Integer -> Bool
 comp f = digit (denominator f) < digit (numerator f)
-
-digit :: Integer -> Int
-digit = length . show

@@ -13,7 +13,7 @@ e8_solve = do
   contents <- readFile "src/resources/Euler8.txt"
   return . maximum . map product . groupBy' 13 . map digitToInt . strip' $ contents
 
-groupBy' :: Integral a => Int -> [a] -> [[a]]
+groupBy' :: Int -> [a] -> [[a]]
 groupBy' _ [] = []
 groupBy' n xs = (take n xs) : groupBy' n (tail xs)
 

@@ -8,10 +8,6 @@ import Data.Bits (setBit)
 import Data.Char (digitToInt)
 import Data.List (delete)
 
-groupBy :: Int -> [a] -> [[a]]
-groupBy _ [] = []
-groupBy n xs = (take n xs) : groupBy n (tail xs)
-
 third :: (a, b, c) -> c
 third (_, _, c) = c
 

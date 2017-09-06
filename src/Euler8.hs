@@ -7,7 +7,6 @@ module Euler8 (e8_solve) where
 import System.IO (readFile)
 import Data.Char (digitToInt)
 import Data.Text (strip, pack, unpack)
-import Common (groupBy)
 
 e8_solve :: IO Int
 e8_solve = do
@@ -16,3 +15,7 @@ e8_solve = do
 
 strip' :: String -> String
 strip' = unpack . strip . pack
+
+groupBy :: Int -> [a] -> [[a]]
+groupBy _ [] = []
+groupBy n xs = (take n xs) : groupBy n (tail xs)

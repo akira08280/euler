@@ -4,7 +4,6 @@
 
 module Euler96 where
 
-import Control.Monad (guard)
 import Data.List (nub, elemIndex, (\\))
 import Data.List.Split (chunksOf)
 import Data.Maybe (fromJust)

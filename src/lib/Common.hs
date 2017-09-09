@@ -8,6 +8,9 @@ import Data.Bits (setBit)
 import Data.Char (digitToInt)
 import Data.List (delete)
 
+stringToInt :: String -> Int
+stringToInt s = read s :: Int
+
 third :: (a, b, c) -> c
 third (_, _, c) = c
 

@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=96
 --}
 
-module Euler96 where
+module Euler96 (e96_solve) where
 
 import Data.List (nub, elemIndex, (\\))
 import Data.List.Split (chunksOf)

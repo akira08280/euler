@@ -16,10 +16,7 @@
 
 module Euler15 (e15_solve) where
 
+import Common (c)
+
 e15_solve :: Integral a => a
 e15_solve = c 40 20
-
-c :: Integral a => a -> a -> a
-c n k = f n k `div` f k k
-  where
-    f n k = product [n - k + 1..n]

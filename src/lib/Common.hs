@@ -42,3 +42,8 @@ concatIntArray ns = read . concat $ map show ns
 permute :: Eq a => [a] -> [[a]]
 permute [] = [[]]
 permute xs = concatMap (\x -> map (x:) $ permute $ delete x xs) xs
+
+c :: Integral a => a -> a -> a
+c n k = f n k `div` f k k
+  where
+    f n k = product [n - k + 1..n]

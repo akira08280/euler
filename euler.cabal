@@ -19,6 +19,7 @@ library
                      , src/lib
   exposed-modules:     Common
                      , MillerRabin
+                     , Euler103
   build-depends:       base >= 4.7 && < 5
                      , NumberTheory
                      , containers
@@ -35,6 +36,7 @@ library
                      , random
                      , digits
                      , split
+                     , Unique
   default-language:    Haskell2010
 
 test-suite euler-test

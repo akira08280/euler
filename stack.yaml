@@ -41,6 +41,9 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps:
 - NumberTheory-0.1.0.1
+- Unique-0.4.7.2
+- containers-0.5.11.0
+- extra-1.6.5
 
 # Override default flag values for local packages and extra-deps
 flags: {}

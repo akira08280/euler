@@ -47,3 +47,6 @@ c :: Integral a => a -> a -> a
 c n k = f n k `div` f k k
   where
     f n k = product [n - k + 1..n]
+
+slice :: [a] -> Int -> Int -> [a]
+slice xs i k = drop (i-1) $ take k xs

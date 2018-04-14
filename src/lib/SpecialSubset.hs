@@ -8,8 +8,8 @@ import Data.List (sort)
 import Data.List.Unique (allUnique)
 import Common (slice, subs)
 
-prune :: Integral a => [a] -> Bool
-prune xs = allUnique xs && isUniqueSubsSum xs && isLargerSubsetsHaveLargerSum 1 (sort xs)
+isSpecialSubset :: Integral a => [a] -> Bool
+isSpecialSubset xs = allUnique xs && isUniqueSubsSum xs && isLargerSubsetsHaveLargerSum 1 (sort xs)
 
 isUniqueSubsSum :: Integral a => [a] -> Bool
 isUniqueSubsSum xs = allUnique . map sum $ subs xs

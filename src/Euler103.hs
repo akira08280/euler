@@ -5,10 +5,10 @@
 module Euler103 (e103_solve) where
 
 import Common (concatIntArray)
-import SpecialSubset (prune)
+import SpecialSubset (isSpecialSubset)
 
 e103_solve :: Int
 e103_solve = concatIntArray . head . candidate $ [20, 31, 38, 39, 40, 44, 46]
 
 candidate :: Integral a => [a] -> [[a]]
-candidate = filter prune . sequence . map (\x -> [x-2..x+2])
+candidate = filter isSpecialSubset . sequence . map (\x -> [x-2..x+2])

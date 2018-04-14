@@ -50,3 +50,9 @@ c n k = f n k `div` f k k
 
 slice :: [a] -> Int -> Int -> [a]
 slice xs i k = drop (i-1) $ take k xs
+
+subs :: [a] -> [[a]]
+subs [] = [[]]
+subs (x:xs) = yss ++ map (x:) yss
+  where
+    yss = subs xs

@@ -19,6 +19,7 @@ library
                      , src/lib
   exposed-modules:     Common
                      , MillerRabin
+                     , SpecialSubset
                      , Euler103
   build-depends:       base >= 4.7 && < 5
                      , NumberTheory

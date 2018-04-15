@@ -20,7 +20,7 @@ library
   exposed-modules:     Common
                      , MillerRabin
                      , SpecialSubset
-                     , Euler103
+                     , Euler105
   build-depends:       base >= 4.7 && < 5
                      , NumberTheory
                      , containers

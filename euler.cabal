@@ -133,6 +133,7 @@ library
                      , Euler104
                      , Euler105
                      , Euler106
+                     , Euler108
                      , Euler113
                      , Euler191
                      , Euler301

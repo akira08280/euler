@@ -6,7 +6,7 @@ module Euler81 (e81_solve) where
 
 import Control.Arrow ((***))
 import Data.Maybe (fromJust)
-import Data.Array.IArray ((!), bounds, elems, inRange, listArray, range, Array)
+import Data.Array ((!), bounds, elems, inRange, listArray, range, Array)
 import Data.Graph.Inductive (Gr)
 import Data.Graph.Inductive.Graph (UNode, LEdge, mkGraph)
 import Data.Graph.Inductive.Query.SP (spTree)

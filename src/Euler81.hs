@@ -42,11 +42,11 @@ genEdges mx side = [edge | i <- range . bounds $ mx,
                            inRange (bounds mx) i',
                            let edge = (fromIxToNode i side, fromIxToNode i' side, mx ! i')]
 
-shifts :: [(Int, Int) -> (Int, Int)]
-shifts = [succ *** id, id *** succ]
-
 genGraph :: Array (Int, Int) Int -> Int -> Gr () Int
 genGraph mx side = mkGraph (genNodes side) (genEdges mx side)
 
 fromIxToNode :: (Int, Int) -> Int -> Int
 fromIxToNode (row, col) side = (+ col) . (* side) $ row
+
+shifts :: [(Int, Int) -> (Int, Int)]
+shifts = [succ *** id, id *** succ]

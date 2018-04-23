@@ -5,7 +5,7 @@
 module Euler83 (e83_solve) where
 
 import Control.Arrow ((***))
-import Data.Array ((!), bounds, elems, inRange, listArray, range, Array)
+import Data.Array.IArray ((!), bounds, elems, inRange, listArray, range, Array)
 import Data.Maybe (fromJust)
 import Data.Graph.Inductive (Gr)
 import Data.Graph.Inductive.Graph (UNode, LEdge, mkGraph)

@@ -6,7 +6,7 @@ module Common where
 
 import Data.Bits (setBit)
 import Data.Char (digitToInt)
-import Data.List (delete)
+import Data.List (delete, tails)
 
 stringToInt :: String -> Int
 stringToInt s = read s :: Int
@@ -42,6 +42,14 @@ concatIntArray ns = read . concat $ map show ns
 permute :: Eq a => [a] -> [[a]]
 permute [] = [[]]
 permute xs = concatMap (\x -> map (x:) $ permute $ delete x xs) xs
+
+-- https://wiki.haskell.org/99_questions/Solutions/26
+combinations :: Int -> [a] -> [[a]]
+combinations 0 _  = return []
+combinations n xs = do
+  y:xs' <- tails xs
+  ys <- combinations (n-1) xs'
+  return (y:ys)
 
 c :: Integral a => a -> a -> a
 c n k = f n k `div` f k k

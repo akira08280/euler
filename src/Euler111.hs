@@ -18,7 +18,7 @@ initials :: [[Char]]
 initials = map (take d . repeat) "0123456789"
 
 s :: [Char] -> Int
-s initial = head . dropWhile (== 0) .map (sum . replaceAndPrimeFilter initial) $ [1..9]
+s initial = head . dropWhile (== 0) . map (sum . replaceAndPrimeFilter initial) $ [1..9]
 
 replaceAndPrimeFilter :: [Char] -> Int -> [Int]
 replaceAndPrimeFilter origin n = do

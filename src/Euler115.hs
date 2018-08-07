@@ -4,7 +4,7 @@
 
 module Euler115 (e115_solve) where
 
-import Block (ways)
+import Block (flexBlockWays)
 
 e115_solve :: Int
-e115_solve = length . takeWhile (< 1000000) . ways 50 $ 200
+e115_solve = length . takeWhile (< 1000000) . flexBlockWays 50 $ 200

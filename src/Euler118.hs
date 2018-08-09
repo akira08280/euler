@@ -15,14 +15,14 @@ divide = filter (not . null) . divide' []
   where
     divide' _ [] = [[]]
     divide' ps [x]
-      | largerThanLast ps x && isPrime x = [ps ++ [x]]
+      | isLargerThanLast ps x && isPrime x = [ps ++ [x]]
       | otherwise = [[]]
     divide' ps (x:y:xs)
-      | largerThanLast ps x && isPrime x = divide' (ps ++ [x]) (y:xs) ++ divide' ps (x*10+y:xs)
+      | isLargerThanLast ps x && isPrime x = divide' (ps ++ [x]) (y:xs) ++ divide' ps (x*10+y:xs)
       | otherwise = divide' ps (x*10+y:xs)
 
-largerThanLast :: Ord a => [a] -> a -> Bool
-largerThanLast [] x = True
-largerThanLast ps x
+isLargerThanLast :: Ord a => [a] -> a -> Bool
+isLargerThanLast [] x = True
+isLargerThanLast ps x
   | last ps < x = True
   | otherwise = False

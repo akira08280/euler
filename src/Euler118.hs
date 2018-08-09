@@ -15,10 +15,10 @@ divide = filter (not . null) . divide' []
   where
     divide' _ [] = [[]]
     divide' ps [x]
-      | isPrime x && largerThanLast ps x = [ps ++ [x]]
+      | largerThanLast ps x && isPrime x = [ps ++ [x]]
       | otherwise = [[]]
     divide' ps (x:y:xs)
-      | isPrime x && largerThanLast ps x = divide' (ps ++ [x]) (y:xs) ++ divide' ps (x*10+y:xs)
+      | largerThanLast ps x && isPrime x = divide' (ps ++ [x]) (y:xs) ++ divide' ps (x*10+y:xs)
       | otherwise = divide' ps (x*10+y:xs)
 
 largerThanLast :: Ord a => [a] -> a -> Bool

@@ -5,7 +5,7 @@
 module Euler58 (e58_solve) where
 
 import Data.Ratio ((%))
-import MillerRabin (millerRabinPrimality)
+import MillerRabin (isPrime)
 
 e58_solve :: Integer
 e58_solve = edges 0 2 1
@@ -18,8 +18,3 @@ edges p e s
     s' = (2 * s - 1) ^ 2
     p' = p + (length . filter isPrime $ [e + s', 2 * e + s', 3 * e + s'])
     rto = p' % (fromIntegral (2 * e) :: Int)
-
-isPrime :: Integer -> Bool
-isPrime x
-  | x == 3 = True
-  | otherwise = and [millerRabinPrimality x n | n <- [2,3]]

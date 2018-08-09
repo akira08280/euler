@@ -4,6 +4,12 @@
 
 module MillerRabin where
 
+isPrime :: Integer -> Bool
+isPrime 1 = False
+isPrime 2 = True
+isPrime 3 = True
+isPrime p = and [millerRabinPrimality p n | n <- [2,3]]
+
 find2km :: Integral a => a -> (a,a)
 find2km n = f 0 n
     where 

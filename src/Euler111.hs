@@ -6,7 +6,7 @@ module Euler111 (e111_solve) where
 
 import Common (combinations, digit, stringToInt)
 import Control.Monad (guard, replicateM)
-import MillerRabin (millerRabinPrimality)
+import MillerRabin (isPrime)
 
 e111_solve :: Int
 e111_solve = sum . map s $ initials
@@ -42,8 +42,3 @@ replaceNth :: Integral a => a -> t -> [t] -> [t]
 replaceNth n newVal (x:xs)
   | n == 0 = newVal:xs
   | otherwise = x:replaceNth (n - 1) newVal xs
-
-isPrime :: Integer -> Bool
-isPrime x
-  | x == 3 = True
-  | otherwise = and [millerRabinPrimality x n | n <- [2,3]]

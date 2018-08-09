@@ -5,7 +5,7 @@
 module Euler118 (e118_solve) where
 
 import Common (permute)
-import MillerRabin (millerRabinPrimality)
+import MillerRabin (isPrime)
 
 e118_solve :: Int
 e118_solve = sum . map (length . divide) . filter (odd . last) . permute $ [1..9]
@@ -26,10 +26,3 @@ largerThanLast [] x = True
 largerThanLast ps x
   | last ps < x = True
   | otherwise = False
-
-isPrime :: Integer -> Bool
-isPrime x
-  | x == 1 = False
-  | x == 2 = True
-  | x == 3 = True
-  | otherwise = and [millerRabinPrimality x n | n <- [2,3]]

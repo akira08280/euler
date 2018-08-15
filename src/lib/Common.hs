@@ -69,4 +69,8 @@ subs (x:xs) = yss ++ map (x:) yss
     yss = subs xs
 
 pas :: [[Integer]]
-pas = [1] : [zipWith (+) (0:t) (t ++ [0]) | t <- pas]
+pas = [1] : do
+  t <- pas
+  let
+    next = zipWith (+) (0:t) (t ++ [0])
+  return next

@@ -67,3 +67,6 @@ subs [] = [[]]
 subs (x:xs) = yss ++ map (x:) yss
   where
     yss = subs xs
+
+pas :: [[Integer]]
+pas = [1] : [zipWith (+) (0:t) (t++[0]) | t <- pas]

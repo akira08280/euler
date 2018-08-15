@@ -60,7 +60,7 @@ catalanNumber :: Integral a => a -> a
 catalanNumber n = c (2 * n) n `div` (n + 1)
 
 slice :: [a] -> Int -> Int -> [a]
-slice xs i k = drop (i-1) $ take k xs
+slice xs i k = drop (i - 1) $ take k xs
 
 subs :: [a] -> [[a]]
 subs [] = [[]]
@@ -69,4 +69,4 @@ subs (x:xs) = yss ++ map (x:) yss
     yss = subs xs
 
 pas :: [[Integer]]
-pas = [1] : [zipWith (+) (0:t) (t++[0]) | t <- pas]
+pas = [1] : [zipWith (+) (0:t) (t ++ [0]) | t <- pas]

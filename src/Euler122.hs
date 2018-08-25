@@ -22,13 +22,11 @@ depthAddChain 12 branch mins = mins
 depthAddChain  d branch mins = foldl step mins $ nextExps branch
   where
     step da e
-      | i >= maxExp = da
-      | otherwise = case compare (da V.! i) d of
-                      GT -> depthAddChain (succ d) (e:branch) $ da V.// [(i,d)]
+      | e >= maxExp = da
+      | otherwise = case compare (da V.! e) d of
+                      GT -> depthAddChain (succ d) (e:branch) $ da V.// [(e,d)]
                       EQ -> depthAddChain (succ d) (e:branch) da
                       LT -> da
-      where
-        i = pred e -- Index of Data.Array.Diff starts from 1, but Vector's index starts from 0
 
 nextExps :: [Int] -> [Int]
 nextExps current = nub . filter (> head current) . liftM2 (+) current $ current
@@ -36,8 +34,9 @@ nextExps current = nub . filter (> head current) . liftM2 (+) current $ current
 baseBranch :: [Int]
 baseBranch = [2,1]
 
+-- Index of Data.Array.Diff starts from 1, but Vector's index starts from 0
 baseMins :: V.Vector Int
-baseMins = V.fromListN maxExp $ 0:1:repeat maxBound
+baseMins = V.fromListN maxExp $ 0:0:1:repeat maxBound
 
 maxExp :: Int
-maxExp = 200
+maxExp = succ 200

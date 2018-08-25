@@ -149,6 +149,7 @@ library
                      , Euler119
                      , Euler120
                      , Euler121
+                     , Euler122
                      , Euler191
                      , Euler301
                      , Euler493
@@ -169,6 +170,7 @@ library
                      , digits
                      , split
                      , Unique
+                     , vector
   default-language:    Haskell2010
 
 test-suite euler-test

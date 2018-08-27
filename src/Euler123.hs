@@ -1,7 +1,7 @@
 {--
   https://projecteuler.net/problem=123
 
-  If n is odd, yhe Reminder of (a-1)^n + (a+1)^n is (2 * n * p) is 2*n*p.
+  If n is odd, the reminder of (a-1)^n + (a+1)^n is (2 * n * p) is 2*n*p.
     -> Problem 120 solution
 --}
 

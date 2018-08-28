@@ -74,3 +74,11 @@ pas = [1] : do
   let
     next = zipWith (+) (0:t) (t ++ [0])
   return next
+
+fromIntegerToInt :: Integer -> Int
+fromIntegerToInt = fromIntegral
+
+isPalindromic :: Int -> Bool
+isPalindromic n = n' == (reverse n')
+  where
+    n' = show n

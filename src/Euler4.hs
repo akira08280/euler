@@ -4,8 +4,7 @@
 
 module Euler4 (e4_solve) where
 
+import Common (isPalindromic)
+
 e4_solve :: Int
 e4_solve = maximum . filter isPalindromic $ (*) <$> [100..999] <*> [100..999]
-
-isPalindromic :: Int -> Bool
-isPalindromic n = show n == (reverse $ show n)

@@ -6,7 +6,9 @@ module Common where
 
 import Data.Bits (setBit)
 import Data.Char (digitToInt)
-import Data.List (delete, tails)
+import Data.List (delete, tails, nub, sortBy)
+import Data.Numbers.Primes (primeFactors)
+import Data.Ord (comparing)
 
 stringToInt :: String -> Int
 stringToInt s = read s :: Int
@@ -82,3 +84,11 @@ isPalindromic :: Int -> Bool
 isPalindromic n = n' == (reverse n')
   where
     n' = show n
+
+sortedRads :: (Num a, Enum a) => Integer -> [(a, Integer)]
+sortedRads limit = sortBy (comparing snd) . zip [1..] $ rads
+  where
+    rads = map rad [1..limit]
+
+rad :: Integer -> Integer
+rad = product . nub . primeFactors

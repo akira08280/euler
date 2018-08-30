@@ -7,7 +7,7 @@ module Euler127 (e127_solve) where
 import Common (rads)
 import Control.Monad (guard)
 import Data.Ord (comparing)
-import qualified Data.Vector as V ((!), Vector, fromList, modify, takeWhile, toList)
+import qualified Data.Vector as V ((!), Vector, fromList, modify, toList)
 import qualified Data.Vector.Algorithms.Intro as I (sortBy)
 
 e127_solve :: Integer

@@ -86,9 +86,10 @@ isPalindromic n = n' == (reverse n')
     n' = show n
 
 sortedRads :: (Num a, Enum a) => Integer -> [(a, Integer)]
-sortedRads limit = sortBy (comparing snd) . zip [1..] $ rads
-  where
-    rads = map rad [1..limit]
+sortedRads limit = sortBy (comparing snd) . rads $ limit
+
+rads :: (Num a, Enum a) => Integer -> [(a, Integer)]
+rads limit = zip [1..] $ map rad [1..limit]
 
 rad :: Integer -> Integer
 rad = product . nub . primeFactors

@@ -86,6 +86,6 @@ isPalindromic n = n' == (reverse n')
 
 rads :: (Num a, Enum a) => Integer -> [(a, Integer)]
 rads limit = zip [1..] $ map rad [1..limit]
-
-rad :: Integer -> Integer
-rad = product . nub . primeFactors
+  where
+    rad :: Integer -> Integer
+    rad = product . nub . primeFactors

@@ -20,6 +20,7 @@ library
   exposed-modules:     Common
                      , MillerRabin
                      , SpecialSubset
+                     , Rads
                      , Block
                      , Euler1
                      , WikiEuler1

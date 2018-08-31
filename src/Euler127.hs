@@ -37,20 +37,20 @@
 
 module Euler127 (e127_solve) where
 
-import Common (rads)
+import Rads (sieve)
 import Control.Monad (guard)
 import Data.Ord (comparing)
-import qualified Data.Vector as V ((!), Vector, fromList, modify, toList)
+import qualified Data.Vector.Unboxed as U
 import qualified Data.Vector.Algorithms.Intro as I (sortBy)
 
-e127_solve :: Integer
+e127_solve :: Int
 e127_solve = sum abchits
 
-abchits :: [Integer]
+abchits :: [Int]
 abchits = do
   c <- [3..limit]
   let
-    radc = snd $ vRads V.! (fromIntegral $ c - 1)
+    radc = snd $ vRads U.! c
     halfc = c `div` 2
   t <- takeWhile (\rad -> let rada = snd rad in rada * radc <= halfc) $ sortedRads
   let
@@ -59,16 +59,13 @@ abchits = do
   let
     b = c - a
     rada = snd t
-    radb = snd $ vRads V.! (fromIntegral $ b - 1)
+    radb = snd $ vRads U.! b
   guard (rada * radb * radc < c)
   guard (gcd a b == 1)
   return c
   where
-    vRads = V.fromList . rads $ limit
-    sortedRads = V.toList . vecSort (comparing snd) $ vRads
-
-vecSort :: (a -> a -> Ordering) -> V.Vector a -> V.Vector a
-vecSort cmp = V.modify (I.sortBy cmp)
+    vRads = sieve limit
+    sortedRads = U.toList . U.modify (I.sortBy $ comparing snd) $ vRads
 
 limit :: Integral a => a
 limit = 12 * 10 ^ 4

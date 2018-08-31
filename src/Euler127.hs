@@ -40,7 +40,7 @@ module Euler127 (e127_solve) where
 import Rads (sieve)
 import Control.Monad (guard)
 import Data.Ord (comparing)
-import qualified Data.Vector.Unboxed as U
+import qualified Data.Vector.Unboxed as U ((!), toList, modify)
 import qualified Data.Vector.Algorithms.Intro as I (sortBy)
 
 e127_solve :: Int

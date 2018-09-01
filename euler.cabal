@@ -20,8 +20,9 @@ library
   exposed-modules:     Common
                      , MillerRabin
                      , SpecialSubset
-                     , Rads
                      , Block
+                     , Rads
+                     , Repunit
                      , Euler1
                      , WikiEuler1
                      , Euler2
@@ -155,6 +156,7 @@ library
                      , Euler124
                      , Euler125
                      , Euler127
+                     , Euler129
                      , Euler191
                      , Euler301
                      , Euler493

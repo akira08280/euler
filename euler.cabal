@@ -22,7 +22,6 @@ library
                      , SpecialSubset
                      , Block
                      , Rads
-                     , Repunit
                      , Euler1
                      , WikiEuler1
                      , Euler2

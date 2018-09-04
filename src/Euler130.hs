@@ -21,12 +21,13 @@
 module Euler130 (e130_solve) where
 
 import MillerRabin (isPrime)
+import Math.NumberTheory.Powers.Modular (powMod)
 
 e130_solve :: Integer
 e130_solve = sum . take limit . filter checkRep . filter (not . isPrime) $ [91, 93..]
 
 checkRep :: Integral a => a -> Bool
-checkRep n = 10 ^ (n - 1) `mod` (9 * n) == 1
+checkRep n = (== 1) . powMod 10 (n - 1) $ (9 * n)
 
 limit :: Integral a => a
 limit = 25

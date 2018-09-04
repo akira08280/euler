@@ -157,6 +157,7 @@ library
                      , Euler125
                      , Euler127
                      , Euler129
+                     , Euler130
                      , Euler191
                      , Euler301
                      , Euler493

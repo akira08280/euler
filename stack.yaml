@@ -44,6 +44,7 @@ extra-deps:
 - Unique-0.4.7.2
 - containers-0.5.11.0
 - extra-1.6.5
+- arithmoi-0.7.0.0
 
 # Override default flag values for local packages and extra-deps
 flags: {}

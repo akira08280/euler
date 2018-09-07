@@ -18,10 +18,11 @@ e134_solve :: Integer
 e134_solve = sum . map smallest $ [2..(length primes - 2)]
   where
     primes = sieve $ limit + 4 -- last prime's pair is (999983, 1000003)
-    smallest n = chineseRemainder2 (p1, 10 ^ (digit $ p1)) (0, p2)
+    smallest n = chineseRemainder2 (p1, 10 ^ d1) (0, p2)
       where
         p1 = primes !! n
         p2 = primes !! (succ n)
+        d1 = digit p1
 
 sieve :: Integer -> [Integer]
 sieve = primeList . primeSieve

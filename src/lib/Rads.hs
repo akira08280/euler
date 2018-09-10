@@ -12,7 +12,7 @@ import qualified Data.Vector.Unboxed as U (Vector, thaw, fromListN, unsafeFreeze
 import qualified Data.Vector.Unboxed.Mutable as UM (unsafeRead, unsafeWrite)
 
 list :: Int -> [(Int, Int)]
-list limit = (0,0) : (zip [1..] $ map rad [1..limit])
+list limit = (0,0) : zip [1..] (map rad [1..limit])
   where
     rad = product . nub . primeFactors
 
@@ -21,8 +21,8 @@ sieve limit = runST $ do
   radsVec <- U.thaw $ U.fromListN (succ limit) $ zip [0..] (0:[1,1..])
   forM_ [2..limit] $ \n -> do
     rad <- UM.unsafeRead radsVec n
-    when (snd rad == 1) $ do
-      forM_ [n,n+n..limit] $ \j -> do
+    when (snd rad == 1) $
+      forM_ [n,n+n..limit] $ \j ->
         UM.unsafeRead radsVec j >>= (\t -> let radt = snd t in UM.unsafeWrite radsVec j (j, radt * n))
   U.unsafeFreeze radsVec
 

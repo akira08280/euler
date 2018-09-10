@@ -13,4 +13,4 @@ e89_solve = do
   let
     before = subRegex (mkRegex "\\n") file ""
     after  = subRegex (mkRegex "DCCCC|LXXXX|VIIII|CCCC|XXXX|IIII") before "xx"
-  return $ (length before) - (length after)
+  return $ length before - length after

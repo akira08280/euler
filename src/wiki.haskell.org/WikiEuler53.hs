@@ -5,6 +5,6 @@
 module WikiEuler53 (wiki_e53_solve) where
 
 facs = scanl (*) 1 [1..100]
-comb (r,n) = facs!!n `div` (facs!!r * facs!!(n-r))
-perms = [(n,x) | x<-[1..100], n<-[1..x]]
-wiki_e53_solve = length $ filter (>1000000) $ map comb $ perms
+comb (r, n) = facs !! n `div` (facs !! r * facs !! (n - r))
+perms = [(n, x) | x <- [1..100], n <- [1..x]]
+wiki_e53_solve = length $ filter (> 1000000) $ map comb perms

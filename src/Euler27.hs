@@ -39,6 +39,6 @@ coefficients = do
 countPrimesFrom :: Integral a => a -> (a, a) -> (a, a)
 countPrimesFrom n (a, b)
   | check = countPrimesFrom (succ n) (a, b)
-  | otherwise = (n, (a * b))
+  | otherwise = (n, a * b)
   where
     check = isPrime (n ^ 2 + a * n + b)

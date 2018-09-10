@@ -31,9 +31,9 @@ family :: [Int]
 family = do
   p <- filter ((> 3) . digit) primes
   let
-    a = (countBy 0 p == 3 && (length $ findPrimeFamily 0 p) == 8)
-    b = (countBy 1 p == 3 && (length $ findPrimeFamily 1 p) == 8 && snd (divMod p 10) /= 1)
-    c = (countBy 2 p == 3 && (length $ findPrimeFamily 2 p) == 8)
+    a = countBy 0 p == 3 && length (findPrimeFamily 0 p) == 8
+    b = countBy 1 p == 3 && length (findPrimeFamily 1 p) == 8 && snd (divMod p 10) /= 1
+    c = countBy 2 p == 3 && length (findPrimeFamily 2 p) == 8
   guard (a || b || c)
   return p
 

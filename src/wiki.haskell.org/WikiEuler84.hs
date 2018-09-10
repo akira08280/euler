@@ -49,7 +49,7 @@ deckChance = [ GoTo GO, GoTo JAIL, GoTo C1,
                replicate 6 Other
 
 doubles :: Roll -> Bool
-doubles r = r!!0 == r!!1
+doubles r = head r == r !! 1
 
 defaultGameState = GameState
   { position = GO,
@@ -102,8 +102,8 @@ newPosition g n = g {position = toEnum $
 
 checkForCards :: GameState -> GameState
 checkForCards g
-  | (position g) `elem` [CH1, CH2, CH3] = doChance g
-  | (position g) `elem` [CC1, CC2, CC3] = doCommunityChest g
+  | position g `elem` [CH1, CH2, CH3] = doChance g
+  | position g `elem` [CC1, CC2, CC3] = doCommunityChest g
   | otherwise = g
 
 travel :: GameState -> [Int] -> GameState
@@ -113,28 +113,28 @@ travel g roll =
         | doubles roll && doublesCount g == 2 =
           g { position = JAIL,
               doublesCount = 0 }
-        | doubles roll = move $ g { doublesCount = (doublesCount g) + 1}
+        | doubles roll = move $ g { doublesCount = doublesCount g + 1}
         | otherwise = move $ g { doublesCount = 0}
       move g = newPosition g value
       checkForJail g
-        | (position g) == G2J = g { position = JAIL }
+        | position g == G2J = g { position = JAIL }
         | otherwise = g
-      saveHistory g = g { history = (position g) : (history g) }
-  in saveHistory $ checkForCards $ checkForJail $ checkDoubles
+      saveHistory g = g { history = position g : history g }
+  in saveHistory $ checkForCards $ checkForJail checkDoubles
 
 game :: GameState -> [Roll] -> GameState
 -- As an exercise in what a difference strictness can make
 -- compare the performance of this with replacing foldl' by foldl
-game g rolls = foldl' (\x y -> travel x y) g rolls
+game = foldl' travel
 
 statistics :: [Squares] -> [(Squares, Float)]
 statistics history =
   let a = accumArray (+) 0 (GO,H2) (zip history (repeat 1)) :: Array Squares Int
       b = assocs a
-      c = reverse $ sortBy (comparing snd) b
+      c = sortBy (flip (comparing snd)) b
       (sq,cnt) = unzip c  -- wiki formatting bug, should be unzip c
       total = sum cnt
-      stats = map (\x -> ((fromIntegral x) / (fromIntegral total) * 100)) cnt
+      stats = map (\x -> fromIntegral x / fromIntegral total * 100) cnt
   in take 3 $ zip sq stats
 
 r = [[1,1],[2,2],[2,2],[4,4]]
@@ -142,7 +142,7 @@ t = game defaultGameState r  -- useful for debugging
 
 pairs :: [a] -> [[a]]
 pairs [] = [[]]
-pairs (x:y:xs) = [[x,y]] ++ (pairs xs)
+pairs (x:y:xs) = [x,y] : pairs xs
 
 dieSides :: (Int,Int)
 -- dieSides = (1,6)

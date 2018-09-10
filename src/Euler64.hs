@@ -22,4 +22,4 @@ continuedFraction s
       where
         m' = d * a - m
         d' = (s - m' ^ 2) `div` d
-        a' = floor $ (fromIntegral (a0 + m')) / (fromIntegral d')
+        a' = floor $ fromIntegral (a0 + m') / fromIntegral d'

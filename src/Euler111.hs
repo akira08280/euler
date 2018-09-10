@@ -14,13 +14,13 @@ e111_solve = sum . map s $ initials
 d :: Int
 d = 10
 
-initials :: [[Char]]
-initials = map (take d . repeat) "0123456789"
+initials :: [String]
+initials = map (replicate d) "0123456789"
 
-s :: [Char] -> Int
+s :: String -> Int
 s initial = head . dropWhile (== 0) . map (sum . replaceAndPrimeFilter initial) $ [1..9]
 
-replaceAndPrimeFilter :: [Char] -> Int -> [Int]
+replaceAndPrimeFilter :: String -> Int -> [Int]
 replaceAndPrimeFilter origin n = do
   idx <- combinations n [0..9]
   rep <- replicateM n "0123456789"
@@ -32,8 +32,8 @@ replaceAndPrimeFilter origin n = do
 
 multiReplaceNth :: (Eq t, Integral a) => [a] -> [t] -> [t] -> [t]
 multiReplaceNth (n:ns) (newVal:remainVals) xs
-  | ns == [] = replaced
-  | remainVals == [] = replaced
+  | null ns  = replaced
+  | null remainVals = replaced
   | otherwise = multiReplaceNth ns remainVals replaced
   where
     replaced = replaceNth n newVal xs

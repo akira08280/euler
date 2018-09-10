@@ -52,7 +52,7 @@ abchits = do
   let
     radc = snd $ vRads U.! c
     halfc = c `div` 2
-  t <- takeWhile (\rad -> let rada = snd rad in rada * radc <= halfc) $ sortedRads
+  t <- takeWhile (\rad -> let rada = snd rad in rada * radc <= halfc) sortedRads
   let
     a = fst t
   guard (a < halfc)

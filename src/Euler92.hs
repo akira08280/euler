@@ -34,14 +34,12 @@ e92_solve =
     sum . map (after !!) . filter unhappy $ [1..limit]
 
 dynamic :: Integral a => [a] -> a -> [a]
-dynamic state _ = map f $ [0..limit]
+dynamic state _ = map f [0..limit]
   where
-    f n = sum .
-          map ((state !!) . (flip subtract n)) .
-          takeWhile (<= n) $ squares
+    f n = sum . map ((state !!) . flip subtract n) . takeWhile (<= n) $ squares
 
 unhappy :: Int -> Bool
-unhappy n = (> 1) . head . dropWhile (\e -> e > 1 && e /= 1 && e /= 89) . iterate sumPow $ n
+unhappy = (> 1) . head . dropWhile (\e -> e > 1 && e /= 1 && e /= 89) . iterate sumPow
   where
     sumPow = sum . map ((^ 2) . digitToInt) . show
 

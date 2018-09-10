@@ -12,7 +12,7 @@ e36_solve =
     p2 = takeWhile (< upper) $ map mp2 [1..]
     ps = p1 ++ p2
   in
-    sum . filter (flip isp 2) $ ps
+    sum . filter (`isp` 2) $ ps
 
 mp1 :: Integral a => a -> a
 mp1 n = mp' n n

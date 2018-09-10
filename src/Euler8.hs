@@ -18,4 +18,4 @@ strip' = unpack . strip . pack
 
 groupBy :: Int -> [a] -> [[a]]
 groupBy _ [] = []
-groupBy n xs = (take n xs) : groupBy n (tail xs)
+groupBy n xs = take n xs : groupBy n (tail xs)

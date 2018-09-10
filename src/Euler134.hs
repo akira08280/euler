@@ -21,7 +21,7 @@ e134_solve = sum . map smallest $ [2..(length primes - 2)]
     smallest n = chineseRemainder2 (p1, 10 ^ d1) (0, p2)
       where
         p1 = primes !! n
-        p2 = primes !! (succ n)
+        p2 = primes !! succ n
         d1 = digit p1
 
 sieve :: Integer -> [Integer]

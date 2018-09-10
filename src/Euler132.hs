@@ -20,7 +20,7 @@ e132_solve :: Integer
 e132_solve = sum . take limit . filter isPrimeFactor . dropWhile (< 5) $ primes
 
 isPrimeFactor :: Integral a => a -> Bool
-isPrimeFactor p = (== 1) . powMod 10 (10 ^ 9) $ p
+isPrimeFactor = (== 1) . powMod 10 (10 ^ 9)
 
 limit :: Integral a => a
 limit = 40

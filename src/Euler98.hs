@@ -18,8 +18,8 @@ e98_solve :: IO Int
 e98_solve = do
   file <- readFile "src/resources/p098_words.txt"
   let
-    words = read ("[" ++ file ++ "]") :: [[Char]]
-    pair = map (\e -> (fst (e !! 0), fst (e !! 1))) .
+    words = read ("[" ++ file ++ "]") :: [String]
+    pair = map (\e -> (fst (head e), fst (e !! 1))) .
            filter ((> 1) . length) .
            groupBy ((==) `on` snd) .
            sortBy (comparing snd) .
@@ -27,7 +27,7 @@ e98_solve = do
            filter ((> 4) . length) $ words
   return . maximum . intercalate [] . map anagrams $ pair
 
-anagrams :: ([Char], [Char]) -> [Int]
+anagrams :: (String, String) -> [Int]
 anagrams pair = do
   let
     a = fst pair
@@ -44,7 +44,7 @@ anagrams pair = do
 choose :: Int -> [Int] -> [[Int]]
 choose n list = concatMap permutations $ choose' list []
   where
-    choose' [] r = if length r == n then [r] else []
+    choose' [] r = [r | length r == n]
     choose' (x:xs) r
       | length r == n = [r]
       | otherwise     = choose' xs (x:r) ++ choose' xs r

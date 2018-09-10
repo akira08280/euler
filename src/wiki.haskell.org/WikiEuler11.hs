@@ -4,15 +4,15 @@
 
 module WikiEuler11 (wiki_e11_solve) where
 
-import Control.Arrow
+import Control.Arrow ((***), first, second)
 import Data.Array
 
 input :: String -> Array (Int,Int) Int
-input = listArray ((1,1),(20,20)) . map read . words
+input = listArray ((1, 1),(20, 20)) . map read . words
 
-senses = [(+1) *** id,(+1) *** (+1), id *** (+1), (+1) *** (\n -> n - 1)]
+senses = [first (+ 1), (+1) *** (+1), second (+ 1), (+1) *** (\n -> n - 1)]
 
-inArray a i = inRange (bounds a) i
+inArray a = inRange (bounds a)
 
 prods :: Array (Int, Int) Int -> [Int]
 prods a = [product xs | i <- range $ bounds a,

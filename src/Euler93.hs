@@ -8,7 +8,7 @@
 module Euler93 (e93_solve) where
 
 import Data.Digits (unDigits)
-import Data.List (nub, sort, sortBy)
+import Data.List (nub, sort, minimumBy)
 import Data.Ord (comparing)
 
 data Op = Add | Sub | Mul | Div
@@ -30,8 +30,7 @@ interleave x []     = [[x]]
 interleave x (y:ys) = (x:y:ys) : map (y:) (interleave x ys)
 
 perms :: [a] -> [[a]]
-perms []     = [[]]
-perms (x:xs) = concat (map (interleave x) (perms xs))
+perms = foldr (concatMap . interleave) [[]]
 
 split :: [a] -> [([a],[a])]
 split []     = []
@@ -60,10 +59,10 @@ results ns  = [apply o lx ly | (ls,rs) <- split ns,
                                valid o lx ly]
 
 convert :: [Float] -> [Int]
-convert = map truncate . sort . nub . filter valid' . concat . map results . perms
+convert = map truncate . sort . nub . filter valid' . concatMap results . perms
 
 countSeq :: [Float] -> Int
-countSeq ns = length . filter (\e -> fst e == snd e) $ zip [1..] seq
+countSeq ns = length . filter (uncurry (==)) $ zip [1..] seq
   where
     seq = convert ns
 
@@ -75,8 +74,8 @@ solve = do
   d <- [(c + 1)..9]
   let
     seq = countSeq [a,b,c,d]
-    ans = map truncate $ [a,b,c,d]
+    ans = map truncate [a,b,c,d]
   return (ans, seq)
 
 e93_solve :: Int
-e93_solve = unDigits 10 . fst . head . sortBy (flip (comparing snd)) $ solve
+e93_solve = unDigits 10 . fst . minimumBy (flip (comparing snd)) $ solve

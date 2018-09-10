@@ -14,7 +14,7 @@
 
 module Euler99 (e99_solve) where
 
-import Data.List (findIndex)
+import Data.List (elemIndex)
 import Data.Maybe (fromJust)
 import System.IO (readFile)
 
@@ -25,4 +25,4 @@ e99_solve = do
     pairs  = map (\line -> read ("(" ++ line ++ ")") :: (Float, Float)) . lines $ file
     pairs' = map (\(base, exponent) -> exponent * log base) pairs
     max    = maximum pairs'
-  return . fromJust . fmap succ . findIndex (== max) $ pairs'
+  return . fromJust . fmap succ . elemIndex max $ pairs'

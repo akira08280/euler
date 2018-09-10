@@ -14,7 +14,7 @@ solve :: [([Int], [Int])]
 solve = do
   dices <- combinations 2 . combinations 6 $ [0,1,2,3,4,5,6,7,8,6]
   let
-    dice1 = dices !! 0
+    dice1 = head dices
     dice2 = dices !! 1
   guard (valid dice1 dice2)
   return (dice1, dice2)

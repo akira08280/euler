@@ -22,10 +22,10 @@ pentagonals = do
   return (p1 - p2)
 
 nthPentagonal :: Integral a => (a -> a)
-nthPentagonal = (\n -> fst $ divMod (n * (3 * n - 1)) 2)
+nthPentagonal n = fst $ divMod (n * (3 * n - 1)) 2
 
 isPentagonal :: Integral a => a -> Bool
 isPentagonal x = n == n'
   where
-    n = (sqrt (1 + 24 * (fromIntegral x)) + 1) / 6
+    n = (sqrt (1 + 24 * fromIntegral x) + 1) / 6
     n' = fromIntegral . floor $ n

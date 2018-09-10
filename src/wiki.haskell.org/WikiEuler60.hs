@@ -35,7 +35,7 @@ solve ps = do
   e <- p
   return [a, b, c, d, e]
   where
-    f x = filter (\y -> and [isPrime $ read $ shows x $ show y, isPrime $ read $ shows y $ show x])
+    f x = filter (\y -> isPrime (read $ shows x $ show y) && isPrime (read $ shows y $ show x))
 
 isPrime :: Integer -> Bool
 isPrime x
@@ -43,7 +43,7 @@ isPrime x
   | otherwise = and [millerRabinPrimality x n | n <- [2,3]]
 
 primesOfMod :: Int -> [Integer]
-primesOfMod m = 3 : filter (\p -> isPrime p && (digitSum p) `mod` 3 == m) [5,7..9999]
+primesOfMod m = 3 : filter (\p -> isPrime p && digitSum p `mod` 3 == m) [5,7..9999]
 
 digitSum :: Integer -> Int
-digitSum n = sum . map digitToInt . show $ n
+digitSum = sum . map digitToInt . show

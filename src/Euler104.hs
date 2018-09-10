@@ -15,7 +15,7 @@ panCheck (i, e) = isPanTail && isPanHead
     isPanTail = isPandigital e [1..9]
     isPanHead = isPandigital (floor (10 ** (decimalPart + 8))) [1..9]
       where
-        t = (fromIntegral i) * 0.20898764024997873 - 0.3494850021680094
+        t = fromIntegral i * 0.20898764024997873 - 0.3494850021680094
         integerPart = fromIntegral . floor $ t
         decimalPart = t - integerPart
 

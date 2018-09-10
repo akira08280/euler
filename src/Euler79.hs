@@ -27,6 +27,7 @@
 
 module Euler79 (e79_solve) where
 
+import Control.Monad (void)
 import Control.Monad.State (put, get, evalState, State)
 import Data.Char (digitToInt)
 import Data.Digits (unDigits)
@@ -63,11 +64,11 @@ findPasscode' keylog = do
 up :: [Int] -> State (Map Int (Set Int)) ()
 up [] = return ()
 up (self:lefts) = do
-  if ((==0) . length $ lefts) then
+  if null lefts then
     insert' self . negate $ 1 -- dirty !
   else
     mapM_ (insert' self) lefts
-  up lefts >> return ()
+  void (up lefts)
 
 -- insert with left from self.
 insert' :: Int -> Int -> State (Map Int (Set Int)) ()

@@ -16,4 +16,4 @@ e62_solve =
     (^ 3) . fst . minimum . head . filter ((== 5) . length) . groupBy ((==) `on` snd) . sortBy (comparing snd) $ a
 
 f :: Integer -> Integer
-f n = read . reverse . sort . show $ n
+f = read . sortBy (flip compare) . show

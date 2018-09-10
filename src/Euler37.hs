@@ -36,9 +36,7 @@ make ps = Set.elems $ make' ps ps Set.empty
         na = Set.union a $ Set.intersection (Set.fromList nr) (Set.fromList nl)
 
 right :: [Int] -> [Int]
-right []     = []
-right (p:ps) = map (\e -> p * 10 + e) [1,3,7,9] ++ right ps
+right = foldr (\p -> (++) (map (\e -> p * 10 + e) [1,3,7,9])) []
 
 left :: [Int] -> [Int]
-left []     = []
-left (p:ps) = map (\e -> e * 10 ^ (digit p) + p) [1..9] ++ left ps
+left = foldr (\p -> (++) (map (\e -> e * 10 ^ digit p + p) [1..9])) []

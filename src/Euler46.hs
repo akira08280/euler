@@ -21,4 +21,4 @@ composites = do
 isTwiceSquare :: Integral a => a -> Bool
 isTwiceSquare n = floor n' == ceiling n' 
   where
-    n' = sqrt $ (fromIntegral . div n $ 2)
+    n' = sqrt (fromIntegral . div n $ 2)

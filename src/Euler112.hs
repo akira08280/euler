@@ -19,7 +19,7 @@ solve a b
   | otherwise = solve (succ a) b
   where
     isBounce' = isBounce a
-    b' = if isBounce' then (succ b) else b
+    b' = if isBounce' then succ b else b
 
 isBounce :: Int -> Bool
 isBounce n = n /= increasingNumber && n /= decreasingNumber
@@ -28,4 +28,4 @@ isBounce n = n /= increasingNumber && n /= decreasingNumber
     decreasingNumber = sort (flip compare) n
 
 sort :: Show a => (Int -> Int -> Ordering) -> a -> Int
-sort fn n = concatIntArray . sortBy fn . map digitToInt . show $ n
+sort fn = concatIntArray . sortBy fn . map digitToInt . show

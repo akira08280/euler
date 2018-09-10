@@ -15,7 +15,7 @@ e107_solve :: IO Int
 e107_solve = do
   file <- readFile "src/resources/p107_network.txt"
   let
-    list = map (map (\e -> if e == "-" then 0 else read e :: Int)) . map (splitOn ",") . lines $ file
+    list = map (map (\e -> if e == "-" then 0 else read e :: Int) . splitOn ",") . lines $ file
     nodes = genNodes . length $ list
     edges = sortBy (\(_, _, a) (_, _, b)-> compare b a) . genEdges $ list
     before = genGraph nodes edges
@@ -33,7 +33,7 @@ genEdges list = [(i, j, e) | let lim = pred . length $ list,
                              e > 0]
 
 genGraph :: [UNode] -> [LEdge Int] -> Gr () Int
-genGraph nodes edges = mkGraph nodes edges
+genGraph = mkGraph
 
 sumOfEdges :: Gr () Int -> Int
 sumOfEdges = sum . map (\(_, _, a) -> a) . labEdges

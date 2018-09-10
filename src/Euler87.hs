@@ -18,9 +18,9 @@ e87_solve =
 powers :: Integral a => a -> [a]
 powers limit = do
   let
-    a = ceiling $ (fromIntegral limit) ** (1/2)
-    b = ceiling $ (fromIntegral limit) ** (1/3)
-    c = ceiling $ (fromIntegral limit) ** (1/4)
+    a = ceiling $ fromIntegral limit ** (1 / 2)
+    b = ceiling $ fromIntegral limit ** (1 / 3)
+    c = ceiling $ fromIntegral limit ** (1 / 4)
   p2 <- takeWhile (< a) primes
   p3 <- takeWhile (< b) primes
   p4 <- takeWhile (< c) primes

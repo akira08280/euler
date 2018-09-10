@@ -35,14 +35,14 @@ e59_solve :: IO Int
 e59_solve = do
   s <- readFile "src/resources/p059_cipher.txt"
   let
-    cipher = (read ("[" ++ s ++ "]") :: [Int])
+    cipher = read ("[" ++ s ++ "]") :: [Int]
     key = analize cipher
   return . sum . map ord . decode key $ cipher
 
-decode :: [Char] -> [Int] -> [Char]
-decode key cipher = map (\(k, c) -> chr . xor c $ (ord k)) $ zip (cycle key) cipher
+decode :: String -> [Int] -> String
+decode key cipher = map (\(k, c) -> chr . xor c $ ord k) $ zip (cycle key) cipher
 
-analize :: [Int] -> [Char]
+analize :: [Int] -> String
 analize xs = map (chr . xor 32) freq
   where
     group' = groupBy ((==) `on` fst) . sortBy (compare `on` fst) $ zip (cycle [0..2]) xs
@@ -51,4 +51,4 @@ analize xs = map (chr . xor 32) freq
                 map (head &&& length) .
                 group .
                 sort .
-                map snd) $ group'
+                map snd) group'

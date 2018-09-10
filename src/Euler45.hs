@@ -21,10 +21,10 @@ e45_solve :: Integral a => a
 e45_solve = head . filter isPentagonal . map nthHexagonal $ [144..]
 
 nthHexagonal :: Integral a => (a -> a)
-nthHexagonal = (\n -> n * (2 * n - 1))
+nthHexagonal n = n * (2 * n - 1)
 
 isPentagonal :: Integral a => a -> Bool
 isPentagonal x = n == n'
   where
-    n = (sqrt (1 + 24 * (fromIntegral x)) + 1) / 6
+    n = (sqrt (1 + 24 * fromIntegral x) + 1) / 6
     n' = fromIntegral . floor $ n

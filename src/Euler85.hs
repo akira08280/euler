@@ -41,6 +41,6 @@ rectangles = do
   y <- [x..100]
   let
    limit = 2 * 10 ^ 6
-   diff  = abs . (subtract limit) . (flip div 4) $ (x * (succ x)) * (y * (succ y))
+   diff  = abs . subtract limit . flip div 4 $ (x * succ x) * (y * succ y)
    area  = x * y
   return (area, diff)

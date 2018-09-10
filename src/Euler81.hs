@@ -4,7 +4,7 @@
 
 module Euler81 (e81_solve) where
 
-import Control.Arrow ((***))
+import Control.Arrow (first, second)
 import Data.Maybe (fromJust)
 import Data.Array ((!), bounds, elems, inRange, listArray, range, Array)
 import Data.Graph.Inductive (Gr)
@@ -20,7 +20,7 @@ e81_solve = do
   file <- readFile "src/resources/p081_matrix.txt"
   let
     list = map (\line -> read ("[" ++ line ++ "]") :: [Int]) . lines $ file
-    side = length $ list !! 0
+    side = length $ head list
     mx = listArray ((0,0), (pred side, pred side)) . concat $ list
     graph = genGraph mx side
     from = [(0,0)]
@@ -49,4 +49,4 @@ fromIxToNode :: (Int, Int) -> Int -> Int
 fromIxToNode (row, col) side = (+ col) . (* side) $ row
 
 shifts :: [(Int, Int) -> (Int, Int)]
-shifts = [succ *** id, id *** succ]
+shifts = [first succ, second succ]

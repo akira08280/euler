@@ -10,7 +10,7 @@ flexBlockWays n i
   | otherwise = prev ++ [append]
   where
     prev = flexBlockWays n (pred i)
-    append = (last prev) + (succ . sum . take ((length prev) - n) $ prev)
+    append = last prev + (succ . sum . take (length prev - n) $ prev)
 
 fixBlockWays :: Num a => Int -> Int -> [a]
 fixBlockWays n i
@@ -18,4 +18,4 @@ fixBlockWays n i
   | otherwise = prev ++ [append]
   where
     prev = fixBlockWays n (pred i)
-    append = (last prev) + (prev !! ((length prev) - n))
+    append = last prev + (prev !! (length prev - n))

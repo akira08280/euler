@@ -16,7 +16,7 @@ howManySpaces = length . filter (==' ')
 wiki_e59_solve = do
   s <- readFile "src/resources/p059_cipher.txt"
   let
-    cipher = (read ("[" ++ s ++ "]") :: [Int])
+    cipher = read ("[" ++ s ++ "]") :: [Int]
     decrypts = [ map chr (zipWith xor (cycle key) cipher) | key <- keys ]
     alphaDecrypts = filter allAlpha decrypts
     message = maximumBy (comparing howManySpaces) alphaDecrypts

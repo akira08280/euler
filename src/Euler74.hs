@@ -19,34 +19,34 @@ import qualified Data.Set as Set
 
 -- sum of factorial by each digit
 sum' :: Int -> Int
-sum' n = sum . map ((a !!) . digitToInt) . show $ n
+sum' = sum . map ((a !!) . digitToInt) . show
   where
     a = [1,1,2,6,24,120,720,5040,40320,362880]
 
 -- clear temporary set for check duplicate
-clearChain :: Int -> State ((Int, Int, Map Int Int, Set Int)) ()
+clearChain :: Int -> State (Int, Int, Map Int Int, Set Int) ()
 clearChain a = do
   (criteria, count, cache, chain) <- get
   put (criteria, a, cache, Set.empty)
 
 -- add element to temporary set for check duplicate
-rememberChain :: Int -> State ((Int, Int, Map Int Int, Set Int)) ()
+rememberChain :: Int -> State (Int, Int, Map Int Int, Set Int) ()
 rememberChain a = do
   (criteria, count, cache, chain) <- get
   put (criteria, count, cache, Set.insert a chain)
 
 -- check duplicated or existed on cache
-isDuplicate :: Int -> State ((Int, Int, Map Int Int, Set Int)) Bool
+isDuplicate :: Int -> State (Int, Int, Map Int Int, Set Int) Bool
 isDuplicate a = do
   (criteria, count, cache, chain) <- get
   case a of
     a
-      | (a `Set.member` chain) -> do clearChain (Set.size chain); return True
-      | (a `Map.member` cache) -> do clearChain ((Set.size chain) + (cache ! a)); return True
+      | a `Set.member` chain -> do clearChain (Set.size chain); return True
+      | a `Map.member` cache -> do clearChain (Set.size chain + (cache ! a)); return True
       | otherwise -> do rememberChain a; return False
 
 -- make chain by sum of factorial, until duplicated or existed on cache
-makeChain :: [Int] -> State ((Int, Int, Map Int Int, Set Int)) [Int]
+makeChain :: [Int] -> State (Int, Int, Map Int Int, Set Int) [Int]
 makeChain [] = return []
 makeChain (a:as) = do
   test <- (fmap not . isDuplicate) a
@@ -56,20 +56,20 @@ makeChain (a:as) = do
   else return []
 
 -- update for cache setting chain count
-updateCache :: (Int, Int) -> State ((Int, Int, Map Int Int, Set Int)) ()
+updateCache :: (Int, Int) -> State (Int, Int, Map Int Int, Set Int) ()
 updateCache (a, b) = do
   (criteria, count, cache, chain) <- get
   put (criteria, count, Map.insert a b cache, chain)
 
 -- calculate which chain length is over criteria
-count' :: Int -> Int -> State ((Int, Int, Map Int Int, Set Int)) Int
+count' :: Int -> Int -> State (Int, Int, Map Int Int, Set Int) Int
 count' n m = do
   forM_ [1..n] $ \i -> do
     c <- makeChain $ iterate sum' i
     (criteria, count, cache, chain) <- get
     mapM_ updateCache $ zip c [count,count-1..]
     when (count == m) $
-      put ((succ criteria), count, cache, chain)
+      put (succ criteria, count, cache, chain)
   get >>= (\(criteria ,_,_,_) -> return criteria)
 
 -- eval state

@@ -56,7 +56,7 @@ solve' p s n from
       check k p >>= (\test -> when test $ insert' k p)
       let
         to = limit * 2 `div` p
-      mapM_ (\x -> solve' (p * x) (s + x) (succ n) (x)) [from..to]
+      mapM_ (\x -> solve' (p * x) (s + x) (succ n) x) [from..to]
   where
     k = p - s + n
 
@@ -64,4 +64,4 @@ check :: Int -> Int -> State (Map Int Int) Bool
 check k p = get >>= (\m -> return (p < findWithDefault (limit * 3) k m))
 
 insert' :: Int -> Int -> State (Map Int Int) ()
-insert' k p = get >>= (\m -> put (insert k p m)) >> return ()
+insert' k p = get >>= (put . insert k p) >> return ()

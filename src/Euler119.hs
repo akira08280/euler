@@ -9,7 +9,7 @@ import Data.List (sort)
 import Control.Monad (guard)
 
 e119_solve :: Integer
-e119_solve = (sort digitPowerSums) !! 29
+e119_solve = sort digitPowerSums !! 29
 
 digitPowerSums :: [Integer]
 digitPowerSums = do

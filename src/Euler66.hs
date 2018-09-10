@@ -44,6 +44,6 @@ minimumPell s = fst .
       where
         m' = d * a - m
         d' = (s - m' ^ 2) `div` d
-        a' = floor $ (fromIntegral (a0 + m')) / (fromIntegral d')
+        a' = floor $ fromIntegral (a0 + m') / fromIntegral d'
         h  = a' * h1 + h2
         k  = a' * k1 + k2

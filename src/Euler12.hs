@@ -22,7 +22,7 @@ e12_solve = countDivisorTriangle 1 1 500
 
 countDivisorTriangle :: Int -> Int -> Int -> Int
 countDivisorTriangle d1 n lim
-  | d1 * d2 >= lim = (n-1) * n `div` 2
+  | d1 * d2 >= lim = (n - 1) * n `div` 2
   | otherwise = countDivisorTriangle d2 (succ n) lim
   where
-    d2 = length . divisors $ (if even n then (n `div` 2) else n)
+    d2 = length . divisors $ (if even n then n `div` 2 else n)

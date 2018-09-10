@@ -29,4 +29,4 @@ countTestCase :: Integral a => a -> a
 countTestCase n = sum . map count $ [2..lim]
   where
     lim = n `div` 2
-    count i = ((c n i) * (c (n - i) i) `div` 2) - ((c n (2 * i)) * catalanNumber i)
+    count i = (c n i * c (n - i) i `div` 2) - (c n (2 * i) * catalanNumber i)

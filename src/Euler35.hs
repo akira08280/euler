@@ -17,12 +17,12 @@ e35_solve =
     cps + 2 -- add 2, 5 primes
 
 allPrimes :: Integral a => [a] -> Bool
-allPrimes xs = all isPrime xs
+allPrimes = all isPrime
 
 circle :: Int -> [Int]
 circle n = scanl circle' n d
   where
-    d = take (pred . digit $ n) $ repeat $ (pred . digit $ n)
+    d = replicate (pred . digit $ n) (pred . digit $ n)
     circle' :: Int -> Int -> Int
     circle' acc x = r
       where

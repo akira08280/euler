@@ -11,7 +11,7 @@ isPrime 3 = True
 isPrime p = and [millerRabinPrimality p n | n <- [2,3]]
 
 find2km :: Integral a => a -> (a,a)
-find2km n = f 0 n
+find2km = f 0
     where 
         f k m
             | r == 1 = (k,m)
@@ -23,12 +23,12 @@ prime n | n < 2 = True
         | n `elem` [2,3,5,7,11,13,17,23] = True
         | n < 341550071728321 = all (millerRabinPrimality n) [2,3,5,7,11,13,17]
         | otherwise = all (millerRabinPrimality n) [2..m]
-                      where m = min (n - 1) (floor (2 * ((log (fromIntegral n)) ** 2)))
+                      where m = min (n - 1) (floor (2 * (log (fromIntegral n) ** 2)))
 
-primes = filter (prime) [2..]
+primes = filter prime [2..]
 
--- prime_factors :: Integer -> [t]
-prime_factors n = factor n primes
+-- primeFactors :: Integer -> [t]
+primeFactors n = factor n primes
   where factor n (p:ps) | p > n = []
                         | n `mod` p /= 0 = factor n ps
                         | otherwise = p : factor (n `div` p) (p:ps)

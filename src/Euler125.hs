@@ -14,10 +14,9 @@ e125_solve = sum . nub $ palindromics
 palindromics :: [Int]
 palindromics = do
   let
-    limit' = round((fromIntegral limit) ** 0.5)
+    limit' = round $ sqrt (fromIntegral limit)
   a <- [1..limit']
-  b <- consectiveSquareSums a
-  return b
+  consectiveSquareSums a
 
 consectiveSquareSums :: Int -> [Int]
 consectiveSquareSums n = consectiveSquareSums' n 0 []

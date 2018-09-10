@@ -47,4 +47,4 @@ sumOfConsecutivePrimes x index acc
   | isPrime acc' = (index, acc')
   | otherwise    = sumOfConsecutivePrimes (succ x) (pred index) acc
   where
-    acc' = (flip subtract acc) . (f !!) $ x
+    acc' = (`subtract` acc) . (f !!) $ x

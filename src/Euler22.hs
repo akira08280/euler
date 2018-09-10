@@ -14,8 +14,8 @@ e22_solve :: IO Int
 e22_solve = do
   file <- readFile "src/resources/p022_names.txt"
   let
-    names = read ("[" ++ file ++ "]") :: [[Char]]
+    names = read ("[" ++ file ++ "]") :: [String]
   return . sum . zipWith calc [1..] . sort $ names
 
-calc :: Int -> [Char] -> Int
-calc i name = (* i) . sum . map ((subtract 64) . ord) $ name
+calc :: Int -> String -> Int
+calc i = (* i) . sum . map (subtract 64 . ord)

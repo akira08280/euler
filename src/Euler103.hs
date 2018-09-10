@@ -11,4 +11,4 @@ e103_solve :: Int
 e103_solve = concatIntArray . head . candidate $ [20, 31, 38, 39, 40, 44, 46]
 
 candidate :: Integral a => [a] -> [[a]]
-candidate = filter isSpecialSubset . sequence . map (\x -> [x-2..x+2])
+candidate = filter isSpecialSubset . mapM (\x -> [x-2..x+2])

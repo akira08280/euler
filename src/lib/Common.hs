@@ -34,7 +34,7 @@ isPandigital n a
     n' = map digitToInt $ show n
 
 mask :: [Int] -> Int
-mask = foldr (\x y -> setBit y x) 0
+mask = foldr (flip setBit) 0
 
 concatIntArray :: [Int] -> Int
 concatIntArray ns = read . concat $ map show ns
@@ -79,6 +79,6 @@ fromIntegerToInt :: Integer -> Int
 fromIntegerToInt = fromIntegral
 
 isPalindromic :: Int -> Bool
-isPalindromic n = n' == (reverse n')
+isPalindromic n = n' == reverse n'
   where
     n' = show n

@@ -8,7 +8,7 @@
 module Euler121 (e121_solve) where
 
 e121_solve :: Integer
-e121_solve = (sum total) `div` (sum wins)
+e121_solve = sum total `div` sum wins
   where
     total = cofficients !! turns
     wins = take (turns `div` 2 + 1) total

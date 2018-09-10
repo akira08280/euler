@@ -15,14 +15,14 @@ e42_solve :: IO Int
 e42_solve = do
   file <- readFile "src/resources/p042_words.txt"
   let
-    names = read ("[" ++ file ++ "]") :: [[Char]]
+    names = read ("[" ++ file ++ "]") :: [String]
   return . length . filter isTriangle . map calc $ names
 
-calc :: [Char] -> Int
-calc name = sum . map ((subtract 64) . ord) $ name
+calc :: String -> Int
+calc = sum . map (subtract 64 . ord)
 
 isTriangle :: Integral a => a -> Bool
 isTriangle x = n == n'
   where
-    n = (sqrt (1 + 8 * (fromIntegral x)) - 1) / 2
+    n = (sqrt (1 + 8 * fromIntegral x) - 1) / 2
     n' = fromIntegral . floor $ n

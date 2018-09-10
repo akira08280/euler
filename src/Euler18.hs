@@ -5,6 +5,7 @@
 module Euler18 (e18_solve) where
 
 import System.IO (readFile)
+import Control.Arrow ((***))
 import Control.Monad (forM_)
 import Control.Monad.ST (ST, runST)
 import Data.Array.ST (STUArray, newListArray, readArray, writeArray)
@@ -25,13 +26,13 @@ dp edge contents = runST $ do
   forM_ seq $ \index -> do
     current <- readArray cache index
     leftBottom <- readArray cache (succ (fst index), snd index)
-    rightBottom <- readArray cache (succ (fst index), succ (snd index))
+    rightBottom <- readArray cache ((succ *** succ) index)
     writeArray cache index $ maximum $ current + leftBottom : [current + rightBottom]
   readArray cache (0, 0)
   where
     seq = (,) <$> [edge-2, edge-3..0] <*> [0..edge-2]
 
 fillArray :: Integral a => a -> [[a]] -> [[a]]
-fillArray n array = map (\e -> e ++ (take (len - length e) $ repeat n)) array
+fillArray n array = map (\e -> e ++ replicate (len - length e) n) array
   where
     len = maximum $ map length array

@@ -1,5 +1,7 @@
 {--
   https://projecteuler.net/problem=135
+
+  (x + k) ^ 2 - x ^ 2 - (x - k) ^ 2 = x * (4 * k - x) = n
 --}
 
 module Euler135 (e135_solve) where
@@ -8,17 +10,17 @@ import Control.Monad (guard)
 import qualified Data.Map as Map (fromListWith, filter, size)
 
 e135_solve :: Int
-e135_solve = Map.size . Map.filter (== 10) . Map.fromListWith (+) . findNs $ limit
+e135_solve = Map.size . Map.filter (== 10) . Map.fromListWith (+) . findAllN $ limit
 
-findNs :: (Num b, Integral t) => t -> [(t, b)]
-findNs lim = concat $ do
+findAllN :: (Num b, Integral t) => t -> [(t, b)]
+findAllN lim = concat $ do
   x <- [1..lim]
-  return . takeWhile ((< lim) . fst) $ solveN x
+  return . takeWhile ((< lim) . fst) $ findNs x
   where
-    solveN x = do
+    findNs x = do
       let
-        lower = 1 + (x `div` 4)
-        upper = x - 1
+        lower = 1 + (x `div` 4) -- Since (4 * k - x) > 0, so k > x / 4
+        upper = x - 1           -- Since (x - k) > 0, so x > k
       k <- [lower..upper]
       let
         n = x * (4 * k - x)

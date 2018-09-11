@@ -6,12 +6,11 @@
 
 module Euler72 (e72_solve) where
 
-import Math.NumberTheory.Primes.Factorisation (totientSieve, sieveTotient)
+import Math.NumberTheory.ArithmeticFunctions (totientA)
+import Math.NumberTheory.ArithmeticFunctions.SieveBlock (runFunctionOverBlock)
 
-e72_solve :: Integer
-e72_solve =
-  let
-    n = 10 ^ 6
-    t = totientSieve n
-  in
-    sum . map (sieveTotient t) $ [2..n]
+e72_solve :: Word
+e72_solve = sum . runFunctionOverBlock totientA 2 $ limit
+
+limit :: Integral a => a
+limit = 10 ^ 6 - 1

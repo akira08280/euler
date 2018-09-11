@@ -5,14 +5,14 @@
 module Euler98 (e98_solve) where
 
 import Control.Monad (guard)
+import Common (isSquare)
 import Data.Digits (unDigits)
 import Data.Function (on)
 import Data.List (intercalate, nub, sort, sortBy, groupBy, permutations)
 import Data.Maybe (fromJust)
-import qualified Data.Map as Map
 import Data.Ord (comparing)
 import System.IO (readFile)
-import Common (isSquare)
+import qualified Data.Map as Map (fromList, size, lookup)
 
 e98_solve :: IO Int
 e98_solve = do

@@ -36,20 +36,19 @@
 module Euler88 (e88_solve) where
 
 import Control.Monad.State (put, get, when, mapM_, execState, State)
-import Data.Map (Map, findWithDefault, insert, empty, elems, delete)
-import qualified Data.Map as Map
-import qualified Data.Set as Set
+import qualified Data.Map as Map (Map, findWithDefault, insert, empty, elems, delete)
+import qualified Data.Set as Set (foldr, fromList)
 
 e88_solve :: Int
-e88_solve = Set.foldr (+) 0 . Set.fromList . elems $ solve
+e88_solve = Set.foldr (+) 0 . Set.fromList . Map.elems $ solve
 
 limit :: Int
 limit = 12 * 10 ^ 3
 
-solve :: Map Int Int
-solve = delete 1 . execState (solve' 1 1 1 2) $ empty
+solve :: Map.Map Int Int
+solve = Map.delete 1 . execState (solve' 1 1 1 2) $ Map.empty
 
-solve' :: Int -> Int -> Int -> Int -> State (Map Int Int) ()
+solve' :: Int -> Int -> Int -> Int -> State (Map.Map Int Int) ()
 solve' p s n from
   | k > limit = return ()
   | otherwise = do
@@ -60,8 +59,8 @@ solve' p s n from
   where
     k = p - s + n
 
-check :: Int -> Int -> State (Map Int Int) Bool
-check k p = get >>= (\m -> return (p < findWithDefault (limit * 3) k m))
+check :: Int -> Int -> State (Map.Map Int Int) Bool
+check k p = get >>= (\m -> return (p < Map.findWithDefault (limit * 3) k m))
 
-insert' :: Int -> Int -> State (Map Int Int) ()
-insert' k p = get >>= (put . insert k p) >> return ()
+insert' :: Int -> Int -> State (Map.Map Int Int) ()
+insert' k p = get >>= (put . Map.insert k p) >> return ()

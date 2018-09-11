@@ -32,12 +32,10 @@ import Control.Monad.State (put, get, evalState, State)
 import Data.Char (digitToInt)
 import Data.Digits (unDigits)
 import Data.List (nub, sortBy)
-import Data.Map (Map, findWithDefault)
 import Data.Ord (comparing)
-import Data.Set (Set)
 import System.IO (readFile)
-import qualified Data.Map as Map
-import qualified Data.Set as Set
+import qualified Data.Map as Map (Map, empty, findWithDefault, insert, toList)
+import qualified Data.Set as Set (Set, empty, insert, size)
 
 e79_solve :: IO Int
 e79_solve = do
@@ -53,7 +51,7 @@ findPasscode keylog = evalState (findPasscode' keylog') Map.empty
     keylog' = nub . map reverse $ keylog
 
 -- sort by State. Set size of second of tuple.
-findPasscode' :: [[Int]] -> State (Map Int (Set Int)) Int
+findPasscode' :: [[Int]] -> State (Map.Map Int (Set.Set Int)) Int
 findPasscode' keylog = do
   mapM_ up keylog
   get >>= (\m -> return (convert $ Map.toList m))
@@ -61,7 +59,7 @@ findPasscode' keylog = do
     convert = unDigits 10 . map fst . sortBy (comparing $ Set.size . snd)
 
 -- update State set left side number of oneself
-up :: [Int] -> State (Map Int (Set Int)) ()
+up :: [Int] -> State (Map.Map Int (Set.Set Int)) ()
 up [] = return ()
 up (self:lefts) = do
   if null lefts then
@@ -71,9 +69,9 @@ up (self:lefts) = do
   void (up lefts)
 
 -- insert with left from self.
-insert' :: Int -> Int -> State (Map Int (Set Int)) ()
+insert' :: Int -> Int -> State (Map.Map Int (Set.Set Int)) ()
 insert' self left = do
   m <- get
   let
-    s = findWithDefault Set.empty self m
+    s = Map.findWithDefault Set.empty self m
   put (Map.insert self (Set.insert left s) m)

@@ -22,7 +22,7 @@ countN p = length . filter id $ [cond1, cond2, cond3]
   where
     cond1 = p < limit `div` 4
     cond2 = p < limit `div` 16
-    cond3 = p + 1 `mod` 4 == 0
+    cond3 = (p + 1) `mod` 4 == 0
 
 limit :: Integral a => a
 limit = 5 * 10 ^ 7

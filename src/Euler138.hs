@@ -21,13 +21,10 @@ e138_solve :: Integral a => a
 e138_solve = sum . map (abs . snd) . tail . take (succ limit) . iterate nextXY $ (0, 1)
 
 nextXY :: Integral a => (a, a) -> (a, a)
-nextXY xy = (xn xy, yn xy)
-
-xn :: Integral a => (a, a) -> a
-xn (x, y) = -9 * x  -4 * y - 4
-
-yn :: Integral a => (a, a) -> a
-yn (x, y) = -20 * x -9 * y - 8
+nextXY (x, y) = (xn, yn)
+  where
+    xn = -9 * x - 4 * y - 4
+    yn = -20 * x - 9 * y - 8
 
 limit :: Integral a => a
 limit = 12

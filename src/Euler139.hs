@@ -3,7 +3,7 @@
 
   Let the triplets are of the form (a, b, c)
 
-  (Centrak hale) + (four triangles) = (the area of square)
+  (Central hole) + (four triangles) = (the area of square)
   (b - a)^2      + 2ab              = c^2
 
   c^2 must be evenly divisible by (b - a)^2.

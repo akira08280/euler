@@ -8,11 +8,11 @@
 
   c^2 must be evenly divisible by (b - a)^2.
   From the above formula; it follows that (b - a)^2 must evenly divide 2ab.
-  
+
   In a primitive Pythagorean triple, a and b have no common factors greater than 1.
   Furthermore, whether a and b is odd, and the other even.
   Because of let "m" and "n" positive integer,
-  
+
   a^2 + b^2 = c^2 is m^2 -n^2 + 2mn = m^2 + n^2.
   (2mn is even, so m^2-n^2 is odd)
 

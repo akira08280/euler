@@ -8,12 +8,12 @@
 module Euler148 (e148_solve) where
 
 e148_solve :: Integer
-e148_solve = f . nBaseArray $ upper
+e148_solve = f . nBaseArray . pred $ upper
 
 f :: [Integer] -> Integer
 f []     = 0
 f [m]    = triangle . succ $ m
-f (d:ms) = triangle d * triangle base ^ length ms + (d + 1) * f ms
+f (d:ms) = triangle d * triangle base ^ length ms + succ d * f ms
 
 triangle :: Integral a => a -> a
 triangle n = n * (n + 1) `div` 2
@@ -31,4 +31,4 @@ base :: Integer
 base = 7
 
 upper :: Integer
-upper = 10 ^ 9 - 1
+upper = 10 ^ 9

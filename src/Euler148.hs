@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=148
 
   This is the best problem I've ever experienced.
-  I'm going to introduce how to solve as soon as possible.
+  I'm going to introduce how to solve as soon as possible easily.
 --}
 
 module Euler148 (e148_solve) where
@@ -19,13 +19,10 @@ triangle :: Integral a => a -> a
 triangle n = n * (n + 1) `div` 2
 
 nBaseArray :: Integer -> [Integer]
-nBaseArray n = nBaseArray' n []
+nBaseArray 0 = []
+nBaseArray n = nBaseArray q ++ [m]
   where
-    nBaseArray' n' ms
-      | q == 0 = m:ms
-      | otherwise = nBaseArray' q (m:ms)
-      where
-        (q, m) = divMod n' base
+    (q, m) = n `divMod` base
 
 base :: Integer
 base = 7

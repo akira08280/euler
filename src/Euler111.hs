@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=111
 --}
 
-module Euler111 (e111_solve) where
+module Euler111 (e111Solve) where
 
 import Common (combinations, digit, stringToInt)
 import Control.Monad (guard, replicateM)
 import MillerRabin (isPrime)
 
-e111_solve :: Int
-e111_solve = sum . map s $ initials
+e111Solve :: Int
+e111Solve = sum . map s $ initials
 
 d :: Int
 d = 10

@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=35
 --}
 
-module Euler35 (e35_solve) where
+module Euler35 (e35Solve) where
 
 import Text.Regex.Posix ((=~))
 import Data.Numbers.Primes (isPrime, primes)
 import Common (digit)
 
-e35_solve :: Int
-e35_solve =
+e35Solve :: Int
+e35Solve =
   let
     ps  = filter ((=~ "^[1|3|7|9]+$") . show) $ takeWhile (< 10 ^ 6) primes
     cps = length . filter (== True) . map (allPrimes . circle) $ ps

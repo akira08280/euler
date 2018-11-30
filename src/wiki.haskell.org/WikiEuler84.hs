@@ -13,7 +13,7 @@
   HenryLaxen May 7, 2008
 --}
 
-module WikiEuler84 (wiki_e84_solve) where
+module WikiEuler84 (wikiE84Solve) where
 
 import Data.Array.IArray
 import Data.List
@@ -149,8 +149,8 @@ dieSides :: (Int,Int)
 dieSides = (1,4)
 maxRolls = 1000000
 
---wiki_e84_solve :: IO ()
-wiki_e84_solve = do
+--wikiE84Solve :: IO ()
+wikiE84Solve = do
   seed <- newStdGen
   let rolls = pairs (randomRs dieSides seed)
       stats = statistics (history (game defaultGameState

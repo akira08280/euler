@@ -14,13 +14,13 @@
 	sys	0m0.000s
 --}
 
-module WikiEuler60 (wiki_e60_solve) where
+module WikiEuler60 (wikiE60Solve) where
 
 import Data.Char (digitToInt)
 import MillerRabin (millerRabinPrimality)
 
-wiki_e60_solve :: Integer
-wiki_e60_solve = sum . head . solve . primesOfMod $ 1
+wikiE60Solve :: Integer
+wikiE60Solve = sum . head . solve . primesOfMod $ 1
 
 solve :: [Integer] -> [[Integer]]
 solve ps = do

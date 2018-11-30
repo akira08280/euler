@@ -4,13 +4,13 @@
   (x + k) ^ 2 - x ^ 2 - (x - k) ^ 2 = x * (4 * k - x) = n
 --}
 
-module Euler135 (e135_solve) where
+module Euler135 (e135Solve) where
 
 import Control.Monad (guard)
 import qualified Data.Map as Map (fromListWith, filter, size)
 
-e135_solve :: Int
-e135_solve = Map.size . Map.filter (== 10) . Map.fromListWith (+) . findAllN $ limit
+e135Solve :: Int
+e135Solve = Map.size . Map.filter (== 10) . Map.fromListWith (+) . findAllN $ limit
 
 findAllN :: (Num b, Integral t) => t -> [(t, b)]
 findAllN lim = concat $ do

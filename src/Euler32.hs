@@ -7,13 +7,13 @@
   2d * 3d = 4d (2 + 3 + 4 = 9)
 --}
 
-module Euler32 (e32_solve) where
+module Euler32 (e32Solve) where
 
 import Data.List (nub)
 import Common (digit, isPandigital, concatIntArray)
 
-e32_solve :: Int
-e32_solve =
+e32Solve :: Int
+e32Solve =
   let
     a = [a * b | a <- [1..9], b <- [1234..9876], let c = concatIntArray [a, b, a*b], isPandigital c [1..9]]
     b = [a * b | a <- [12..98], b <- [123..987], let c = concatIntArray [a, b, a*b], isPandigital c [1..9]]

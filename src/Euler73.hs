@@ -32,10 +32,10 @@
   q = int((12000 + 3) % 11999) * 11999 - 3 is next d.
 --}
 
-module Euler73 (e73_solve) where
+module Euler73 (e73Solve) where
 
-e73_solve :: Int
-e73_solve = length . takeWhile (not . (\(_, _, c, d) -> (c == 1 && d == 2))) . iterate f $ (1,3,4000,11999)
+e73Solve :: Int
+e73Solve = length . takeWhile (not . (\(_, _, c, d) -> (c == 1 && d == 2))) . iterate f $ (1,3,4000,11999)
 
 f :: Integral a => (a, a, a, a) -> (a, a, a, a)
 f (a, b, c, d) = (c, d, k * c - a, k * d - b)

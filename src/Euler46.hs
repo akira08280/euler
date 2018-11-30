@@ -2,13 +2,13 @@
   https://projecteuler.net/problem=46
 --}
 
-module Euler46 (e46_solve) where
+module Euler46 (e46Solve) where
 
 import Control.Monad (guard)
 import Data.Numbers.Primes (primes)
 
-e46_solve :: Integral a => a
-e46_solve = head composites
+e46Solve :: Integral a => a
+e46Solve = head composites
 
 composites :: Integral a => [a]
 composites = do

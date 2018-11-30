@@ -2,7 +2,7 @@
   https://wiki.haskell.org/Euler_problems/11_to_20#Problem_11
 --}
 
-module WikiEuler11 (wiki_e11_solve) where
+module WikiEuler11 (wikiE11Solve) where
 
 import Control.Arrow ((***), first, second)
 import Data.Array
@@ -21,7 +21,7 @@ prods a = [product xs | i <- range $ bounds a,
                         all (inArray a) is,
                         let xs = map (a!) is]
 
-wiki_e11_solve :: IO Int
-wiki_e11_solve = do
+wikiE11Solve :: IO Int
+wikiE11Solve = do
   contents <- readFile "src/resources/Euler11.txt"
   return . maximum . prods . input $ contents

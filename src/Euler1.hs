@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=1
 --}
 
-module Euler1 (e1_solve) where
+module Euler1 (e1Solve) where
 
 import Control.Monad (guard)
 
-e1_solve :: Integral a => a
-e1_solve = sum multiples
+e1Solve :: Integral a => a
+e1Solve = sum multiples
 
 multiples :: Integral a => [a]
 multiples = do

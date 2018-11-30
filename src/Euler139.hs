@@ -38,10 +38,10 @@
             = A + c
 --}
 
-module Euler139 (e139_solve) where
+module Euler139 (e139Solve) where
 
-e139_solve :: Integral a => a
-e139_solve = sum . map countSimilarTriangle . takeWhile isPerimUnderLimit . tail . iterate nextXY $ (1, 1)
+e139Solve :: Integral a => a
+e139Solve = sum . map countSimilarTriangle . takeWhile isPerimUnderLimit . tail . iterate nextXY $ (1, 1)
 
 nextXY :: Integral a => (a, a) -> (a, a)
 nextXY (x, y) = (3 * x + 4 * y, 2 * x + 3 * y)

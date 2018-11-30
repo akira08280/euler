@@ -25,7 +25,7 @@
   We can find result by sorting the size of second of tuple.
 --}
 
-module Euler79 (e79_solve) where
+module Euler79 (e79Solve) where
 
 import Control.Monad (void)
 import Control.Monad.State (put, get, evalState, State)
@@ -37,8 +37,8 @@ import System.IO (readFile)
 import qualified Data.Map as Map (Map, empty, findWithDefault, insert, toList)
 import qualified Data.Set as Set (Set, empty, insert, size)
 
-e79_solve :: IO Int
-e79_solve = do
+e79Solve :: IO Int
+e79Solve = do
   file <- readFile "src/resources/p079_keylog.txt"
   let
     keylog = map (map digitToInt) . lines $ file

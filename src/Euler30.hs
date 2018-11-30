@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=30
 --}
 
-module Euler30 (e30_solve) where
+module Euler30 (e30Solve) where
 
 import Data.Char (digitToInt)
 
-e30_solve :: Int
-e30_solve =
+e30Solve :: Int
+e30Solve =
   let
     s = sum . map ((^ 5) . digitToInt) . show
     limit = 9 ^ 5 * 6

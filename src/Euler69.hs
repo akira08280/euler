@@ -13,9 +13,9 @@
   Moreover, p would be better off small, because (1 - 1 % p) becomes smaller.
 --}
 
-module Euler69 (e69_solve) where
+module Euler69 (e69Solve) where
 
 import Data.Numbers.Primes (primes)
 
-e69_solve :: Integral a => a
-e69_solve = last . takeWhile (<= 10 ^ 6) . scanl1 (*) $ primes
+e69Solve :: Integral a => a
+e69Solve = last . takeWhile (<= 10 ^ 6) . scanl1 (*) $ primes

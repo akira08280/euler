@@ -2,10 +2,10 @@
   https://projecteuler.net/problem=144
 --}
 
-module Euler144 (e144_solve) where
+module Euler144 (e144Solve) where
 
-e144_solve :: Int
-e144_solve = length . takeWhile exit . iterate next $ (0.0, 10.1, 1.4, -9.6)
+e144Solve :: Int
+e144Solve = length . takeWhile exit . iterate next $ (0.0, 10.1, 1.4, -9.6)
 
 next :: (Floating t, Ord t) => (t, t, t, t) -> (t, t, t, t)
 next (fromX, fromY, toX, toY) = (toX, toY, nextX, nextY)

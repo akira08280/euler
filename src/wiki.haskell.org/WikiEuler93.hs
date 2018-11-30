@@ -2,7 +2,7 @@
   https://wiki.haskell.org/Euler_problems/91_to_100#Problem_93
 --}
 
-module WikiEuler93 (wiki_e93_solve) where
+module WikiEuler93 (wikiE93Solve) where
 
 import Data.List
 import Control.Monad
@@ -31,7 +31,7 @@ results xs = fun 1 ys
 
 cmp = comparing results
 
-wiki_e93_solve = maximumBy cmp [[a,b,c,d] | a <- [1..10],
+wikiE93Solve = maximumBy cmp [[a,b,c,d] | a <- [1..10],
                                             b <- [a + 1..10],
                                             c <- [b + 1..10],
                                             d <- [c + 1..10]]

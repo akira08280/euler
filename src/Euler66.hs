@@ -19,14 +19,14 @@
   https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Algorithm
 --}
 
-module Euler66 (e66_solve) where
+module Euler66 (e66Solve) where
 
 import Data.Ord (comparing)
 import Data.List (maximumBy)
 import Common (isSquare)
 
-e66_solve :: Integral a => a
-e66_solve = 
+e66Solve :: Integral a => a
+e66Solve = 
   let
     a = filter (not . isSquare) [1..10 ^ 3]
   in

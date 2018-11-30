@@ -10,10 +10,10 @@
   0L              D + E + F  D  E
 --}
 
-module Euler191 (e191_solve) where
+module Euler191 (e191Solve) where
 
-e191_solve :: Integer
-e191_solve = last . take 30 . map _sum . iterate next $ (1, 0, 0, 1, 1, 0) -- Initially it can only be 0, 1A or 1L
+e191Solve :: Integer
+e191Solve = last . take 30 . map _sum . iterate next $ (1, 0, 0, 1, 1, 0) -- Initially it can only be 0, 1A or 1L
 
 next :: Integral a => (a, a, a, a, a, a) -> (a, a, a, a, a, a)
 next (a, b, c, d, e, f) = (_a, _b, _c, _d, _e, _f)

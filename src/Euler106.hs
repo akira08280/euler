@@ -11,9 +11,9 @@
   https://qiita.com/y_minoda/items/ea283aef6323a541db34#%E3%82%BD%E3%83%BC%E3%82%B9
 --}
 
-module Euler106 (e106_solve) where
+module Euler106 (e106Solve) where
 
 import SpecialSubset (countTestCase)
 
-e106_solve :: Int
-e106_solve = countTestCase 12 
+e106Solve :: Int
+e106Solve = countTestCase 12 

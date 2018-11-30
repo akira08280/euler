@@ -17,10 +17,10 @@
   9. The result of 8, d1,d2 = {1,4}
 --}
 
-module Euler43 (e43_solve) where
+module Euler43 (e43Solve) where
 
-e43_solve :: Int
-e43_solve = sum . map (\p -> (read . concat $ p) :: Int) $ pandigitals
+e43Solve :: Int
+e43Solve = sum . map (\p -> (read . concat $ p) :: Int) $ pandigitals
 
 pandigitals :: [[String]]
 pandigitals = do

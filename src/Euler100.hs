@@ -28,10 +28,10 @@
   Yn+1 = 4Xn + 3Yn – 3
 --}
 
-module Euler100 (e100_solve) where
+module Euler100 (e100Solve) where
 
-e100_solve :: Integral a => a
-e100_solve = fst . head . dropWhile ((< 10 ^ 12) . snd) . iterate next $ (1, 1)
+e100Solve :: Integral a => a
+e100Solve = fst . head . dropWhile ((< 10 ^ 12) . snd) . iterate next $ (1, 1)
 
 next :: Integral a => (a, a) -> (a, a)
 next (b, n) = (3 * b + 2 * n - 2, 4 * b + 3 * n - 3)

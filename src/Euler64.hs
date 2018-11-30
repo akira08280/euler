@@ -5,12 +5,12 @@
   [https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Algorithm]
 --}
 
-module Euler64 (e64_solve) where
+module Euler64 (e64Solve) where
 
 import Common (third, isSquare)
 
-e64_solve :: Int
-e64_solve = length . filter (odd . length . continuedFraction) $ [1..10 ^ 4]
+e64Solve :: Int
+e64Solve = length . filter (odd . length . continuedFraction) $ [1..10 ^ 4]
 
 continuedFraction :: Integral a => a -> [(a, a, a)]
 continuedFraction s

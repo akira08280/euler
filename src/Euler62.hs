@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=62
 --}
 
-module Euler62 (e62_solve) where
+module Euler62 (e62Solve) where
 
 import Data.Function (on)
 import Data.List (sort, sortBy, groupBy)
 import Data.Ord (comparing)
 
-e62_solve :: Integer
-e62_solve =
+e62Solve :: Integer
+e62Solve =
   let
     a = map (\e -> (,) e . f . (^ 3) $ e) [345..10 ^ 4]
   in

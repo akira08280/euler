@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=18
 --}
 
-module Euler18 (e18_solve) where
+module Euler18 (e18Solve) where
 
 import System.IO (readFile)
 import Control.Arrow ((***))
@@ -11,8 +11,8 @@ import Control.Monad.ST (ST, runST)
 import Data.Array.ST (STUArray, newListArray, readArray, writeArray)
 import Data.List (intercalate)
 
-e18_solve :: IO Int
-e18_solve = do
+e18Solve :: IO Int
+e18Solve = do
   file <- readFile "src/resources/Euler18.txt"
   let
     contents = intercalate [] $ fillArray 0 $ map (map read . words) $ lines file

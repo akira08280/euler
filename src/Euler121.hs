@@ -5,10 +5,10 @@
   (x + 1)(x + 2)(x + 3)(x + 4)(x + 5)(x + 6)(x + 7)....(x + 15)
 --}
 
-module Euler121 (e121_solve) where
+module Euler121 (e121Solve) where
 
-e121_solve :: Integer
-e121_solve = sum total `div` sum wins
+e121Solve :: Integer
+e121Solve = sum total `div` sum wins
   where
     total = cofficients !! turns
     wins = take (turns `div` 2 + 1) total

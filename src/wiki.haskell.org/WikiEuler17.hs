@@ -2,7 +2,7 @@
   https://wiki.haskell.org/Euler_problems/11_to_20#Problem_17
 --}
 
-module WikiEuler17 (wiki_e17_solve) where
+module WikiEuler17 (wikiE17Solve) where
 
 import Data.Char
  
@@ -20,4 +20,4 @@ decompose x
   where
     firstDigit = digitToInt . head . show
 
-wiki_e17_solve = length . concatMap decompose $ [1..1000]
+wikiE17Solve = length . concatMap decompose $ [1..1000]

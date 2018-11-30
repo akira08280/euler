@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=14
 --}
 
-module Euler14 (e14_solve) where
+module Euler14 (e14Solve) where
 
 import Control.Monad (forM_, when)
 import Control.Monad.ST (ST, runST)
@@ -10,8 +10,8 @@ import Data.STRef (newSTRef, readSTRef, writeSTRef)
 import Data.Array.ST (STUArray, newArray)
 import Data.Array.Base (unsafeRead, unsafeWrite)
 
-e14_solve :: Int
-e14_solve = maxCollatzLength (10 ^ 6)
+e14Solve :: Int
+e14Solve = maxCollatzLength (10 ^ 6)
 
 -- If the number in process is less than first number, getting the rest length from cache.
 maxCollatzLength :: Int -> Int

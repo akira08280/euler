@@ -14,13 +14,13 @@
   m     < sqrt (L % 2)
 --}
 
-module Euler75 (e75_solve) where
+module Euler75 (e75Solve) where
 
 import Control.Monad (guard)
 import Data.List (group, sort)
 
-e75_solve :: Int
-e75_solve = length . concat . filter ((== 1) . length) . group . triangles $ 15 * 10 ^ 5
+e75Solve :: Int
+e75Solve = length . concat . filter ((== 1) . length) . group . triangles $ 15 * 10 ^ 5
 
 similar :: Integral a => a -> a -> [a]
 similar limit s = takeWhile (<= limit) . map (* s) $ [1..]

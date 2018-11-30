@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=47
 --}
 
-module Euler47 (e47_solve) where
+module Euler47 (e47Solve) where
 
 import NumberTheory (primes)
 
-e47_solve :: Integral a => a
-e47_solve = head . find $ 4
+e47Solve :: Integral a => a
+e47Solve = head . find $ 4
 
 find :: Integral a => Int -> [a]
 find n = find' (2 * 3 * 5 * 7) 1 []

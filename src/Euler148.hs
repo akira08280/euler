@@ -5,10 +5,10 @@
   I'm going to introduce how to solve as soon as possible easily.
 --}
 
-module Euler148 (e148_solve) where
+module Euler148 (e148Solve) where
 
-e148_solve :: Integer
-e148_solve = f . nBaseArray . pred $ upper
+e148Solve :: Integer
+e148Solve = f . nBaseArray . pred $ upper
 
 f :: [Integer] -> Integer
 f []     = 0

@@ -2,15 +2,15 @@
   https://projecteuler.net/problem=112
 --}
 
-module Euler112 (e112_solve) where
+module Euler112 (e112Solve) where
 
 import Common (concatIntArray)
 import Data.Char (digitToInt)
 import Data.Ord (compare)
 import Data.List (sortBy)
 
-e112_solve :: Int
-e112_solve = solve 1 0
+e112Solve :: Int
+e112Solve = solve 1 0
 
 solve :: Int -> Int -> Int
 solve a b

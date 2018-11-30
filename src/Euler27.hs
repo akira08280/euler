@@ -19,15 +19,15 @@
      Therefore a is odd.
 --}
 
-module Euler27 (e27_solve) where
+module Euler27 (e27Solve) where
 
 import Control.Monad (guard)
 import Data.Ord (comparing)
 import Data.List (maximumBy)
 import Data.Numbers.Primes (isPrime, primes)
 
-e27_solve :: Integral a => a
-e27_solve = snd . maximumBy (comparing fst) . map (countPrimesFrom 2) $ coefficients
+e27Solve :: Integral a => a
+e27Solve = snd . maximumBy (comparing fst) . map (countPrimesFrom 2) $ coefficients
 
 coefficients :: Integral a => [(a, a)]
 coefficients = do

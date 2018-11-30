@@ -20,10 +20,10 @@
   For that reason, we have to subtract 1 at last.
 --}
 
-module Euler76 (e76_solve) where
+module Euler76 (e76Solve) where
 
-e76_solve :: Integral a => a
-e76_solve = pred . sumofways $ [1..100] -- subtract 1 to except in the case of only 100
+e76Solve :: Integral a => a
+e76Solve = pred . sumofways $ [1..100] -- subtract 1 to except in the case of only 100
 
 sumofways :: Integral a => [Int] -> a
 sumofways xs = ways xs !! length xs

@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=101
 --}
 
-module Euler101 (e101_solve) where
+module Euler101 (e101Solve) where
 
 import Data.List (intercalate)
 
-e101_solve :: Integral a => a
-e101_solve = sum . intercalate [] . takeWhile (not . null) . iterate diffNeighbor . map formula $ [1..10]
+e101Solve :: Integral a => a
+e101Solve = sum . intercalate [] . takeWhile (not . null) . iterate diffNeighbor . map formula $ [1..10]
 
 diffNeighbor :: Integral a => [a] -> [a]
 diffNeighbor [] = []

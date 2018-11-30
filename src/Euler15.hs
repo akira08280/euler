@@ -14,9 +14,9 @@
   So, It is equal to problem setting two rights from four.
 --}
 
-module Euler15 (e15_solve) where
+module Euler15 (e15Solve) where
 
 import Common (c)
 
-e15_solve :: Integral a => a
-e15_solve = c 40 20
+e15Solve :: Integral a => a
+e15Solve = c 40 20

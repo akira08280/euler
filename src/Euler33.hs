@@ -30,12 +30,12 @@
   So, We only have to consider about case 4.
 --}
 
-module Euler33 (e33_solve) where
+module Euler33 (e33Solve) where
 
 import Control.Monad (guard)
 
-e33_solve :: Integral a => a
-e33_solve =
+e33Solve :: Integral a => a
+e33Solve =
   let
     f = foldr1 (\(d, n) (a, b) -> (d * a, n * b)) cancellings
     d = fst f

@@ -2,10 +2,10 @@
   https://projecteuler.net/problem=36
 --}
 
-module Euler36 (e36_solve) where
+module Euler36 (e36Solve) where
 
-e36_solve :: Integral a => a
-e36_solve =
+e36Solve :: Integral a => a
+e36Solve =
   let
     upper = 10 ^ 6
     p1 = takeWhile (< upper) $ map mp1 [1..]

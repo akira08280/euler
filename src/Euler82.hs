@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=82
 --}
 
-module Euler82 (e82_solve) where
+module Euler82 (e82Solve) where
 
 import Control.Arrow (first, second)
 import Data.Array ((!), bounds, elems, inRange, listArray, range, Array)
@@ -15,8 +15,8 @@ import Data.List (minimumBy)
 import Data.Ord (comparing)
 import System.IO (readFile)
 
-e82_solve :: IO Int
-e82_solve = do
+e82Solve :: IO Int
+e82Solve = do
   file <- readFile "src/resources/p082_matrix.txt"
   let
     list = map (\line -> read ("[" ++ line ++ "]") :: [Int]) . lines $ file

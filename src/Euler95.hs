@@ -9,7 +9,7 @@
 
 {-# LANGUAGE FlexibleContexts #-}
 
-module Euler95 (e95_solve) where
+module Euler95 (e95Solve) where
 
 import Data.Array.Base (unsafeRead, unsafeWrite)
 import Data.Array.ST
@@ -47,8 +47,8 @@ findMinMax lim = runST $ do
                     else find mm len (i+1)
     find 6 1 7
 
-e95_solve :: IO Int
-e95_solve = do
+e95Solve :: IO Int
+e95Solve = do
     args <- getArgs
     let lim = case args of
                 (a:_) -> read a

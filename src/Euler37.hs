@@ -14,14 +14,14 @@
   So, we continue until either of two set is empty.
 --}
 
-module Euler37 (e37_solve) where
+module Euler37 (e37Solve) where
 
 import Data.Numbers.Primes (isPrime)
 import qualified Data.Set as Set (Set, elems, fromList, intersection, union, empty)
 import Common (digit)
 
-e37_solve :: Int
-e37_solve = sum . make $ [2,3,5,7]
+e37Solve :: Int
+e37Solve = sum . make $ [2,3,5,7]
 
 make :: [Int] -> [Int]
 make ps = Set.elems $ make' ps ps Set.empty

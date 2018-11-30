@@ -2,13 +2,13 @@
   https://projecteuler.net/problem=90
 --}
 
-module Euler90 (e90_solve) where
+module Euler90 (e90Solve) where
 
 import Control.Monad (guard)
 import Common (combinations)
 
-e90_solve:: Int
-e90_solve = length solve
+e90Solve:: Int
+e90Solve = length solve
 
 solve :: [([Int], [Int])]
 solve = do

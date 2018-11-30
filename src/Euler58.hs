@@ -2,13 +2,13 @@
   https://projecteuler.net/problem=58
 --}
 
-module Euler58 (e58_solve) where
+module Euler58 (e58Solve) where
 
 import Data.Ratio ((%))
 import MillerRabin (isPrime)
 
-e58_solve :: Integer
-e58_solve = edges 0 2 1
+e58Solve :: Integer
+e58Solve = edges 0 2 1
 
 edges :: Int -> Integer -> Integer -> Integer
 edges p e s

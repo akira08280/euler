@@ -21,7 +21,7 @@
   So n = (a-1)/2.
 --}
 
-module Euler120 (e120_solve) where
+module Euler120 (e120Solve) where
 
-e120_solve :: Integer
-e120_solve = sum . map (\a -> 2 * a * ((a - 1) `div` 2)) $ [3..1000]
+e120Solve :: Integer
+e120Solve = sum . map (\a -> 2 * a * ((a - 1) `div` 2)) $ [3..1000]

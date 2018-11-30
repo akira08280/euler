@@ -2,15 +2,15 @@
   https://projecteuler.net/problem=31
 --}
 
-module Euler31 (e31_solve) where
+module Euler31 (e31Solve) where
 
 import Control.Monad (forM_)
 import Data.Array.ST (newArray, runSTUArray)
 import Data.Array.Base(unsafeRead, unsafeWrite)
 import Data.Array.Unboxed (UArray, elems)
 
-e31_solve :: Int
-e31_solve = last . elems $ dp
+e31Solve :: Int
+e31Solve = last . elems $ dp
 
 dp :: UArray Int Int
 dp = runSTUArray $ do

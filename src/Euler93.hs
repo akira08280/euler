@@ -5,7 +5,7 @@
   Graham Hutton, Cambridge University Press, 2016.
 --}
 
-module Euler93 (e93_solve) where
+module Euler93 (e93Solve) where
 
 import Data.Digits (unDigits)
 import Data.List (nub, sort, minimumBy)
@@ -77,5 +77,5 @@ solve = do
     ans = map truncate [a,b,c,d]
   return (ans, seq)
 
-e93_solve :: Int
-e93_solve = unDigits 10 . fst . minimumBy (flip (comparing snd)) $ solve
+e93Solve :: Int
+e93Solve = unDigits 10 . fst . minimumBy (flip (comparing snd)) $ solve

@@ -22,7 +22,7 @@
   the most frequent letter in English is space. (ASKII CODE:32)
 --}
 
-module Euler59 (e59_solve) where
+module Euler59 (e59Solve) where
 
 import Control.Arrow ((&&&))
 import Data.Bits (xor)
@@ -31,8 +31,8 @@ import Data.Function (on)
 import Data.Ord (comparing)
 import Data.List (sort, sortBy, group, groupBy, maximumBy)
 
-e59_solve :: IO Int
-e59_solve = do
+e59Solve :: IO Int
+e59Solve = do
   s <- readFile "src/resources/p059_cipher.txt"
   let
     cipher = read ("[" ++ s ++ "]") :: [Int]

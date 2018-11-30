@@ -2,13 +2,13 @@
   https://projecteuler.net/problem=118
 --}
 
-module Euler118 (e118_solve) where
+module Euler118 (e118Solve) where
 
 import Common (permute)
 import MillerRabin (isPrime)
 
-e118_solve :: Int
-e118_solve = sum . map (length . divide) . filter (odd . last) . permute $ [1..9]
+e118Solve :: Int
+e118Solve = sum . map (length . divide) . filter (odd . last) . permute $ [1..9]
 
 divide :: [Integer] -> [[Integer]]
 divide = filter (not . null) . divide' []

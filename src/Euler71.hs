@@ -17,9 +17,9 @@
   we repeat above calclation until denominator exceeding 10 ^ 6.
 --}
 
-module Euler71 (e71_solve) where
+module Euler71 (e71Solve) where
 
 import Control.Arrow ((***))
 
-e71_solve :: Integral a => a
-e71_solve = fst . last . takeWhile ((< 10 ^ 6) . snd) . iterate ((+ 3) *** (+ 7)) $ (2,5)
+e71Solve :: Integral a => a
+e71Solve = fst . last . takeWhile ((< 10 ^ 6) . snd) . iterate ((+ 3) *** (+ 7)) $ (2,5)

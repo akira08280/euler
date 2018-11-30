@@ -15,10 +15,10 @@
   So Hexagonal numbers is odd Triangular numbers, we consider of Hexagonal numbers and Pentagonal numbers.
 --}
 
-module Euler45 (e45_solve) where
+module Euler45 (e45Solve) where
 
-e45_solve :: Integral a => a
-e45_solve = head . filter isPentagonal . map nthHexagonal $ [144..]
+e45Solve :: Integral a => a
+e45Solve = head . filter isPentagonal . map nthHexagonal $ [144..]
 
 nthHexagonal :: Integral a => (a -> a)
 nthHexagonal n = n * (2 * n - 1)

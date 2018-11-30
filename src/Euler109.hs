@@ -2,10 +2,10 @@
   https://projecteuler.net/problem=109
 --}
 
-module Euler109 (e109_solve) where
+module Euler109 (e109Solve) where
 
-e109_solve :: Int
-e109_solve = length $ pattern1 ++ pattern2 ++ pattern3
+e109Solve :: Int
+e109Solve = length $ pattern1 ++ pattern2 ++ pattern3
 
 singles :: [Int]
 singles = [1..20] ++ [25]

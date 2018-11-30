@@ -14,7 +14,7 @@
   9digit -> 0
 --}
 
-module Euler145 (e145_solve) where
+module Euler145 (e145Solve) where
 
-e145_solve :: Integral a => a
-e145_solve = sum [0,20,100,600,0,18000,50000,540000,0]
+e145Solve :: Integral a => a
+e145Solve = sum [0,20,100,600,0,18000,50000,540000,0]

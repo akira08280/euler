@@ -5,12 +5,12 @@
   if n is greater equal than 10, 10 ^ p consists of  p+1 digits.
 --}
 
-module Euler63 (e63_solve) where
+module Euler63 (e63Solve) where
 
 import Common (digit)
 
-e63_solve :: Int
-e63_solve = length nthPower
+e63Solve :: Int
+e63Solve = length nthPower
 
 nthPower :: [(Integer, Int, Integer)]
 nthPower = do

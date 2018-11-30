@@ -5,9 +5,9 @@
     -> Problem 120 solution
 --}
 
-module Euler123 (e123_solve) where
+module Euler123 (e123Solve) where
 
 import Data.Numbers.Primes (primes)
 
-e123_solve :: Integer
-e123_solve = fst . head . dropWhile (\(n,p) -> 2*n*p < 10^10) . filter (odd . fst) . zip [1..] $ primes
+e123Solve :: Integer
+e123Solve = fst . head . dropWhile (\(n,p) -> 2*n*p < 10^10) . filter (odd . fst) . zip [1..] $ primes

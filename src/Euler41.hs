@@ -12,10 +12,10 @@
   1 + 2 + 3 + 4                     = 10 (% 3 = 1)
 --}
 
-module Euler41 (e41_solve) where
+module Euler41 (e41Solve) where
 
 import Data.Numbers.Primes (isPrime)
 import Common (digit, isPandigital)
 
-e41_solve :: Int
-e41_solve = head . filter (`isPandigital` [1..7]) . filter isPrime $ [7654321,7654319..1234567]
+e41Solve :: Int
+e41Solve = head . filter (`isPandigital` [1..7]) . filter isPrime $ [7654321,7654319..1234567]

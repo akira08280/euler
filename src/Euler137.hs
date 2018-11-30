@@ -5,10 +5,10 @@
   https://oeis.org/A081018
 --}
 
-module Euler137 (e137_solve) where
+module Euler137 (e137Solve) where
 
-e137_solve :: Integral a => a
-e137_solve = fib (nth * 2) * fib (nth * 2 + 1)
+e137Solve :: Integral a => a
+e137Solve = fib (nth * 2) * fib (nth * 2 + 1)
 
 fib :: Integral a => a -> a
 fib n = round $ phi ** fromIntegral n / sq5

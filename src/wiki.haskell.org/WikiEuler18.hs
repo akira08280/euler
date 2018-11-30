@@ -2,9 +2,9 @@
   https://wiki.haskell.org/Euler_problems/11_to_20#Problem_18
 --}
 
-module WikiEuler18 (wiki_e18_solve) where
+module WikiEuler18 (wikiE18Solve) where
 
-wiki_e18_solve = head $ foldr1 g tri 
+wikiE18Solve = head $ foldr1 g tri
   where
     f x y z = x + max y z
     g xs ys = zipWith3 f xs ys $ tail ys

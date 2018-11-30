@@ -11,13 +11,13 @@
   2 is trivial, because 3 does not become a multiple of 3 even if adding 1 to 10 ^ 9.
 --}
 
-module Euler132 (e132_solve) where
+module Euler132 (e132Solve) where
 
 import Data.Numbers.Primes (primes)
 import Math.NumberTheory.Powers.Modular (powMod)
 
-e132_solve :: Integer
-e132_solve = sum . take limit . filter isPrimeFactor . dropWhile (< 5) $ primes
+e132Solve :: Integer
+e132Solve = sum . take limit . filter isPrimeFactor . dropWhile (< 5) $ primes
 
 isPrimeFactor :: Integral a => a -> Bool
 isPrimeFactor = (== 1) . powMod 10 (10 ^ 9)

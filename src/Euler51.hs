@@ -16,7 +16,7 @@
   so If sum of digits not replaced is not divisible by 3, it doesn't come in number divisible by 3.
 --}
 
-module Euler51 (e51_solve) where
+module Euler51 (e51Solve) where
 
 import Control.Monad (guard)
 import Data.Char (intToDigit)
@@ -24,8 +24,8 @@ import Data.String.Utils (replace)
 import Data.Numbers.Primes (isPrime, primes)
 import Common (digit)
 
-e51_solve :: Int
-e51_solve = head family
+e51Solve :: Int
+e51Solve = head family
 
 family :: [Int]
 family = do

@@ -41,7 +41,7 @@
   hoge (x:y:z:a) = a
 --}       
 
-module WikiEuler61 (wiki_e61_solve) where
+module WikiEuler61 (wikiE61Solve) where
 
 import Data.List
 
@@ -60,4 +60,4 @@ figurates n xs = filter link $ concatMap (gather (map poly xs) . (: [])) (poly n
         link ((_,x):xs) = x `mod` 100 == snd (last xs) `div` 100
         poly m = [(n, x) | (n, x) <- zip [1..] $ takeWhile (< 10000) $ scanl (+) 1 [m - 1,2 * m - 3..], 1010 < x, x `mod` 100 > 9]
 
-wiki_e61_solve = sum $ map snd $ head $ concatMap (figurates 3) $ permute [4..8]
+wikiE61Solve = sum $ map snd $ head $ concatMap (figurates 3) $ permute [4..8]

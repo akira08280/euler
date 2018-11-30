@@ -2,10 +2,10 @@
   https://projecteuler.net/problem=6
 --}
 
-module Euler6 (e6_solve) where
+module Euler6 (e6Solve) where
 
-e6_solve :: Integral a => a
-e6_solve = round $ sumOfSquares limit ^ 2 - squareOfSums limit
+e6Solve :: Integral a => a
+e6Solve = round $ sumOfSquares limit ^ 2 - squareOfSums limit
 
 sumOfSquares :: Fractional a => a -> a
 sumOfSquares n = n * (n + 1) / 2

@@ -2,9 +2,9 @@
   https://projecteuler.net/problem=116
 --}
 
-module Euler116 (e116_solve) where
+module Euler116 (e116Solve) where
 
 import Block (fixBlockWays)
 
-e116_solve :: Integer
-e116_solve = sum . map (pred . last . flip fixBlockWays 50) $ [2..4]
+e116Solve :: Integer
+e116Solve = sum . map (pred . last . flip fixBlockWays 50) $ [2..4]

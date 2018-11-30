@@ -11,13 +11,13 @@
   38 = 18 + 20 (19 +- 1)
 --}
 
-module Euler23 (e23_solve) where
+module Euler23 (e23Solve) where
 
 import NumberTheory (divisors)
 import qualified Data.Set as Set (fromList, notMember)
 
-e23_solve :: Integral a=> a
-e23_solve =
+e23Solve :: Integral a=> a
+e23Solve =
   let
     upperBound  = 28123
     abList      = filter (\e -> e < sumDivisors e) [1..upperBound]

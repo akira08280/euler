@@ -2,15 +2,15 @@
   https://projecteuler.net/problem=49
 --}
 
-module Euler49 (e49_solve) where
+module Euler49 (e49Solve) where
 
 import Control.Monad (guard)
 import Data.List (sort)
 import Data.Numbers.Primes (isPrime)
 import Common (concatIntArray)
 
-e49_solve :: Int
-e49_solve = head . map concatIntArray $ terms
+e49Solve :: Int
+e49Solve = head . map concatIntArray $ terms
 
 terms :: [[Int]] 
 terms = do

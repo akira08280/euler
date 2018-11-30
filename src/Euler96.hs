@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=96
 --}
 
-module Euler96 (e96_solve) where
+module Euler96 (e96Solve) where
 
 import Common (stringToInt)
 import Data.List (nub, elemIndex, (\\))
@@ -37,8 +37,8 @@ solve grid
     zeroIndex = elemIndex '0' grid
     grids = possibles (fromJust zeroIndex) grid
 
-e96_solve :: IO Int
-e96_solve = do
+e96Solve :: IO Int
+e96Solve = do
   file <- readFile "src/resources/p096_sudoku.txt"
   let
     contents = filter (=~ "^[0-9]") . lines $ file

@@ -2,7 +2,7 @@
   https://wiki.haskell.org/Euler_problems/51_to_60#Problem_54
 --}
 
-module WikiEuler54 (wiki_e54_solve) where
+module WikiEuler54 (wikiE54Solve) where
 
 import Data.List
 import Data.Maybe
@@ -35,7 +35,7 @@ solveHand hand = (handRank,tiebreak)
 gameLineToHands = splitAt 5 . map readCard . words
 p1won (a,b) = solveHand a > solveHand b
                                          
-wiki_e54_solve = do
+wikiE54Solve = do
   f <- readFile "src/resources/p054_poker.txt"
   let games = map gameLineToHands $ lines f
       wins = filter p1won games

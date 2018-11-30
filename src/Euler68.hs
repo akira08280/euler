@@ -15,7 +15,7 @@
   6. After that we eliminate the impossible.
 --}
 
-module Euler68 (e68_solve) where
+module Euler68 (e68Solve) where
 
-e68_solve :: Integral a => a
-e68_solve = 6531031914842725
+e68Solve :: Integral a => a
+e68Solve = 6531031914842725

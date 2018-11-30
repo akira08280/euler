@@ -44,15 +44,15 @@
   9,7   9,6   9,5   9,4 <- duplicate
 --}
 
-module Euler86 (e86_solve) where
+module Euler86 (e86Solve) where
 
 import Control.Monad (guard)
 import Data.Maybe (fromJust)
 import Data.List (findIndex)
 import Common (isSquare)
 
-e86_solve :: Int
-e86_solve = fromJust . findIndex (> 10 ^ 6) . scanl1 (+) . map (sum . shortest) $ [0..]
+e86Solve :: Int
+e86Solve = fromJust . findIndex (> 10 ^ 6) . scanl1 (+) . map (sum . shortest) $ [0..]
 
 shortest :: Integral a => a -> [a]
 shortest m = do

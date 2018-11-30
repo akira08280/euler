@@ -34,9 +34,9 @@
   [23]
 --}
 
-module WikiEuler67 (wiki_e67_solve) where
+module WikiEuler67 (wikiE67Solve) where
 
-wiki_e67_solve = readFile "src/resources/p067_triangle.txt" >>= print . solve . parse
+wikiE67Solve = readFile "src/resources/p067_triangle.txt" >>= print . solve . parse
 parse = map (map read . words) . lines
 solve = head . foldr1 step
 step [] [_] = []

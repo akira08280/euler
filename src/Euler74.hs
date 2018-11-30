@@ -8,7 +8,7 @@
   It's important for me that we don't need pass the argument in context of State monad.
 --}
 
-module Euler74 (e74_solve) where
+module Euler74 (e74Solve) where
 
 import Control.Monad.State (put, get, forM_, when, evalState, State)
 import Data.Char (digitToInt)
@@ -79,5 +79,5 @@ solve n m = evalState (count' n m) (criteria, count, cache, chain)
     cache = Map.fromList [(169,3),(871,2),(872,2),(1454,3),(363601,3),(45361,2),(45362,2)]
     chain = Set.empty
 
-e74_solve :: Int
-e74_solve = solve (10 ^ 6) 60
+e74Solve :: Int
+e74Solve = solve (10 ^ 6) 60

@@ -42,9 +42,9 @@
                                                     ([0]*50 ++ n) 00..........
 --}
 
-module WikiEuler31 (wiki_e31_solve) where
+module WikiEuler31 (wikiE31Solve) where
 
-wiki_e31_solve = ways [1,2,5,10,20,50,100,200] !! 200
+wikiE31Solve = ways [1,2,5,10,20,50,100,200] !! 200
   where
     ways [] = 1 : repeat 0
     ways (coin:coins) = n 

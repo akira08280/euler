@@ -15,10 +15,10 @@
   http://www.alpertron.com.ar/QUAD.HTM
 --}
 
-module Euler138 (e138_solve) where
+module Euler138 (e138Solve) where
 
-e138_solve :: Integral a => a
-e138_solve = sum . map (abs . snd) . tail . take (succ limit) . iterate nextXY $ (0, 1)
+e138Solve :: Integral a => a
+e138Solve = sum . map (abs . snd) . tail . take (succ limit) . iterate nextXY $ (0, 1)
 
 nextXY :: Integral a => (a, a) -> (a, a)
 nextXY (x, y) = (xn, yn)

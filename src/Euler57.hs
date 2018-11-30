@@ -11,13 +11,13 @@
   iterate continuedFraction $ (1 % 2) -> 1/(2 + 1/(2 + 1/(2 + 1/2)))
 --}
 
-module Euler57 (e57_solve) where
+module Euler57 (e57Solve) where
 
 import Data.Ratio ((%), numerator, denominator, Ratio)
 import Common (digit)
 
-e57_solve :: Int
-e57_solve = length . filter comp . take (10 ^ 3) . map succ . iterate continuedFraction $ (1 % 2)
+e57Solve :: Int
+e57Solve = length . filter comp . take (10 ^ 3) . map succ . iterate continuedFraction $ (1 % 2)
 
 continuedFraction :: Integral a => Ratio a -> Ratio a
 continuedFraction x = 1 / (2 + x)

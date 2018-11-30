@@ -2,7 +2,7 @@
   https://wiki.haskell.org/Euler_problems/51_to_60#Problem_59
 --}
 
-module WikiEuler59 (wiki_e59_solve) where
+module WikiEuler59 (wikiE59Solve) where
 
 import Data.Bits
 import Data.Char
@@ -13,7 +13,7 @@ keys = [ [a,b,c] | a <- [97..122], b <- [97..122], c <- [97..122] ]
 allAlpha = all (\k -> let a = ord k in (a >= 32 && a <= 122))
 howManySpaces = length . filter (==' ')
 
-wiki_e59_solve = do
+wikiE59Solve = do
   s <- readFile "src/resources/p059_cipher.txt"
   let
     cipher = read ("[" ++ s ++ "]") :: [Int]

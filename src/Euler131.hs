@@ -21,12 +21,12 @@
   Since 1) and 2), a and b must be consective.
 --}
 
-module Euler131 (e131_solve) where
+module Euler131 (e131Solve) where
 
 import MillerRabin (isPrime)
 
-e131_solve :: Int
-e131_solve = length . takeWhile (< limit) . filter isPrime . map diffConsecutiveCubes $ [1..]
+e131Solve :: Int
+e131Solve = length . takeWhile (< limit) . filter isPrime . map diffConsecutiveCubes $ [1..]
 
 diffConsecutiveCubes :: Integral a => a -> a
 diffConsecutiveCubes n = (n + 1) ^ 3 - n ^ 3

@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=26
 --}
 
-module Euler26 (e26_solve) where
+module Euler26 (e26Solve) where
 
 import Data.Ord (comparing)
 import Data.List (maximumBy)
 import qualified Data.Set as Set (Set, empty, insert, member, size)
 
-e26_solve :: Int
-e26_solve = fst . maximumBy (comparing snd) . cycles $ 10 ^ 3
+e26Solve :: Int
+e26Solve = fst . maximumBy (comparing snd) . cycles $ 10 ^ 3
 
 cycles ::Integral a => a -> [(a, Int)]
 cycles n = do

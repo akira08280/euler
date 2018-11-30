@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=13
 --}
 
-module Euler13 (e13_solve) where
+module Euler13 (e13Solve) where
 
 import System.IO (readFile)
 
-e13_solve :: IO Int
-e13_solve = do
+e13Solve :: IO Int
+e13Solve = do
   contents <- readFile "src/resources/Euler13.txt"
   return . head' 10 $ contents
 

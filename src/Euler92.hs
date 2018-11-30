@@ -21,12 +21,12 @@
   This is the meaning of 'dynamic' function.
 --}
 
-module Euler92 (e92_solve) where
+module Euler92 (e92Solve) where
 
 import Data.Char (digitToInt)
 
-e92_solve :: Integral a => a
-e92_solve =
+e92Solve :: Integral a => a
+e92Solve =
   let
     before = map (\a -> if a `elem` squares then 1 else 0) [0..limit]
     after  = foldl dynamic before [2..digits] -- from second digit to seventh digit.

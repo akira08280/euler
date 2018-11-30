@@ -27,13 +27,13 @@
   |  2  |   |  2  |   2!(x+1-2)!   2!(y+1-2)   4
 --}
 
-module Euler85 (e85_solve) where
+module Euler85 (e85Solve) where
 
 import Data.List (minimumBy)
 import Data.Ord (comparing)
 
-e85_solve :: Integral a => a
-e85_solve = fst . minimumBy (comparing snd) $ rectangles
+e85Solve :: Integral a => a
+e85Solve = fst . minimumBy (comparing snd) $ rectangles
 
 rectangles :: Integral a => [(a, a)]
 rectangles = do

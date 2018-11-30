@@ -10,10 +10,10 @@
   It is only necessary that the z-coordinates of these three outer products are equal.
 --}
 
-module Euler102 (e102_solve) where
+module Euler102 (e102Solve) where
 
-e102_solve :: IO Int
-e102_solve = do
+e102Solve :: IO Int
+e102Solve = do
   file <- readFile "src/resources/p102_triangles.txt"
   let
     triangles = map (\line -> read ("[" ++ line ++ "]") :: [Int]) . lines $ file

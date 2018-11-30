@@ -18,14 +18,14 @@
   The range of a is p / 3, because of a <= b < c and 2.
 --}
 
-module Euler39 (e39_solve) where
+module Euler39 (e39Solve) where
 
 import Control.Monad (guard)
 import Data.Ord (comparing)
 import Data.List (sort, group, maximumBy)
 
-e39_solve :: Integral a => a
-e39_solve = fst . maximumBy (comparing snd) . map (\all@(x:_) -> (x, length all)) . group . sort $ triangles
+e39Solve :: Integral a => a
+e39Solve = fst . maximumBy (comparing snd) . map (\all@(x:_) -> (x, length all)) . group . sort $ triangles
 
 triangles :: Integral a => [a]
 triangles = do

@@ -8,14 +8,14 @@
   https://wiki.haskell.org/Euler_problems/121_to_130#Problem_122
 --}
 
-module Euler122 (e122_solve) where
+module Euler122 (e122Solve) where
 
 import Data.List (nub)
 import Control.Monad (liftM2)
 import qualified Data.Vector as V ((!), (//), Vector, sum, fromListN) 
 
-e122_solve :: Int
-e122_solve = V.sum . depthAddChain 2 baseBranch $ baseMins
+e122Solve :: Int
+e122Solve = V.sum . depthAddChain 2 baseBranch $ baseMins
 
 depthAddChain :: (Num a, Ord a, Enum a) => a -> [Int] -> V.Vector a -> V.Vector a
 depthAddChain 12 branch mins = mins

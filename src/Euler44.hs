@@ -4,12 +4,12 @@
   n = ((√24 x + 1) + 1) / 6 must consist of integer.
 --}
 
-module Euler44 (e44_solve) where
+module Euler44 (e44Solve) where
 
 import Control.Monad (guard)
 
-e44_solve :: Integral a => a
-e44_solve = head pentagonals
+e44Solve :: Integral a => a
+e44Solve = head pentagonals
 
 pentagonals :: Integral a => [a]
 pentagonals = do

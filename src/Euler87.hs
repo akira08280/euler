@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=87
 --}
 
-module Euler87 (e87_solve) where
+module Euler87 (e87Solve) where
 
 import Control.Monad (guard)
 import Data.Numbers.Primes (primes)
 import qualified Data.Set as Set (fromList, size)
 
-e87_solve :: Int
-e87_solve =
+e87Solve :: Int
+e87Solve =
   let
     limit = 5 * 10 ^ 7
   in

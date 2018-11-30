@@ -24,13 +24,13 @@
   In addition to,  x > y > z > 0, it follows that a > c > d.
 --}
 
-module Euler142 (e142_solve) where
+module Euler142 (e142Solve) where
 
 import Control.Monad (guard)
 import Common (isSquare)
 
-e142_solve :: Integral a => a
-e142_solve = sum . head $ findXyz
+e142Solve :: Integral a => a
+e142Solve = sum . head $ findXyz
 
 findXyz :: Integral a => [[a]]
 findXyz = do

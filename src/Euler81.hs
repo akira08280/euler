@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=81
 --}
 
-module Euler81 (e81_solve) where
+module Euler81 (e81Solve) where
 
 import Control.Arrow (first, second)
 import Data.Maybe (fromJust)
@@ -15,8 +15,8 @@ import Data.List (minimumBy)
 import Data.Ord (comparing)
 import System.IO (readFile)
 
-e81_solve :: IO Int
-e81_solve = do
+e81Solve :: IO Int
+e81Solve = do
   file <- readFile "src/resources/p081_matrix.txt"
   let
     list = map (\line -> read ("[" ++ line ++ "]") :: [Int]) . lines $ file

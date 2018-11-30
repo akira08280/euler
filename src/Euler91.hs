@@ -2,10 +2,10 @@
   https://projecteuler.net/problem=91
 --}
 
-module Euler91 (e91_solve) where
+module Euler91 (e91Solve) where
 
-e91_solve :: Integral a => a
-e91_solve =
+e91Solve :: Integral a => a
+e91Solve =
   let
     size   = 5 * 10 ^ 1
     xaxis  = size * size

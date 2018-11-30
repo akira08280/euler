@@ -7,7 +7,7 @@
   I don't understand this theory perfectly.
 --}
 
-module WikiEuler78 (wiki_e78_solve) where
+module WikiEuler78 (wikiE78Solve) where
 
 import Data.Array
 
@@ -24,5 +24,5 @@ partitions =
     penta n = n * (3 * n - 1) `div` 2
     parts n = takeWhile (>= 0) [n - x | x <- suite]
 
-wiki_e78_solve :: Int
-wiki_e78_solve = head $ filter (\x -> (partitions ! x) `mod` 1000000 == 0) [1..]
+wikiE78Solve :: Int
+wikiE78Solve = head $ filter (\x -> (partitions ! x) `mod` 1000000 == 0) [1..]

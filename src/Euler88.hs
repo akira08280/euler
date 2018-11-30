@@ -33,14 +33,14 @@
   the computer will find all of the minimal sum-product numbers for 2 <= k <= 12000.
 --}
 
-module Euler88 (e88_solve) where
+module Euler88 (e88Solve) where
 
 import Control.Monad.State (put, get, when, mapM_, execState, State)
 import qualified Data.Map as Map (Map, findWithDefault, insert, empty, elems, delete)
 import qualified Data.Set as Set (foldr, fromList)
 
-e88_solve :: Int
-e88_solve = Set.foldr (+) 0 . Set.fromList . Map.elems $ solve
+e88Solve :: Int
+e88Solve = Set.foldr (+) 0 . Set.fromList . Map.elems $ solve
 
 limit :: Int
 limit = 12 * 10 ^ 3

@@ -5,10 +5,10 @@
   And we can test only odd numbers because gcd (n, 10) == 1.
 --}
 
-module Euler129 (e129_solve) where
+module Euler129 (e129Solve) where
 
-e129_solve :: Int
-e129_solve = head . filter (\n -> a n > limit) $ [limit + 1, limit + 3..]
+e129Solve :: Int
+e129Solve = head . filter (\n -> a n > limit) $ [limit + 1, limit + 3..]
 
 a :: Integral a => a -> a
 a n

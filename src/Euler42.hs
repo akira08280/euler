@@ -5,14 +5,14 @@
   https://en.wikipedia.org/wiki/Triangular_number
 --}
 
-module Euler42 (e42_solve) where
+module Euler42 (e42Solve) where
 
 import Data.Char (ord)
 import Data.List (sort)
 import System.IO (readFile)
 
-e42_solve :: IO Int
-e42_solve = do
+e42Solve :: IO Int
+e42Solve = do
   file <- readFile "src/resources/p042_words.txt"
   let
     names = read ("[" ++ file ++ "]") :: [String]

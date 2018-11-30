@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=119
 --}
 
-module Euler119 (e119_solve) where
+module Euler119 (e119Solve) where
 
 import Data.Char (digitToInt)
 import Data.List (sort)
 import Control.Monad (guard)
 
-e119_solve :: Integer
-e119_solve = sort digitPowerSums !! 29
+e119Solve :: Integer
+e119Solve = sort digitPowerSums !! 29
 
 digitPowerSums :: [Integer]
 digitPowerSums = do

@@ -2,7 +2,7 @@
   https://wiki.haskell.org/Euler_problems/11_to_20#Problem_14
 --}
 
-module WikiEuler14 (wiki_e14_solve) where
+module WikiEuler14 (wikiE14Solve) where
 
 import Data.Array
 import Data.List
@@ -15,4 +15,4 @@ syrs n = a
       where 
         y = if even x then x `div` 2 else 3 * x + 1
 
-wiki_e14_solve = maximumBy (comparing snd) . assocs . syrs $ 1000000
+wikiE14Solve = maximumBy (comparing snd) . assocs . syrs $ 1000000

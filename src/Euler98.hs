@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=98
 --}
 
-module Euler98 (e98_solve) where
+module Euler98 (e98Solve) where
 
 import Control.Monad (guard)
 import Common (isSquare)
@@ -14,8 +14,8 @@ import Data.Ord (comparing)
 import System.IO (readFile)
 import qualified Data.Map as Map (fromList, size, lookup)
 
-e98_solve :: IO Int
-e98_solve = do
+e98Solve :: IO Int
+e98Solve = do
   file <- readFile "src/resources/p098_words.txt"
   let
     words = read ("[" ++ file ++ "]") :: [String]

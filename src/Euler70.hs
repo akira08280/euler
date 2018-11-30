@@ -34,7 +34,7 @@
   10000000 / 999999 = 1.00000010000001
 --}
 
-module Euler70 (e70_solve) where
+module Euler70 (e70Solve) where
 
 import Control.Monad (guard)
 import Data.Ratio ((%), Ratio)
@@ -42,8 +42,8 @@ import Data.Ord (comparing)
 import Data.List ((\\), minimumBy)
 import Data.Numbers.Primes (primes)
 
-e70_solve :: Integer
-e70_solve =
+e70Solve :: Integer
+e70Solve =
   let
     n = 10 ^ 7
   in

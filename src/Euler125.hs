@@ -2,14 +2,14 @@
   https://projecteuler.net/problem=125
 --}
 
-module Euler125 (e125_solve) where
+module Euler125 (e125Solve) where
 
 import Common (isPalindromic)
 import Control.Monad (guard)
 import Data.List (nub)
 
-e125_solve :: Int
-e125_solve = sum . nub $ palindromics
+e125Solve :: Int
+e125Solve = sum . nub $ palindromics
 
 palindromics :: [Int]
 palindromics = do

@@ -12,14 +12,14 @@
   we compare by the magnitude of p.
 --}
 
-module Euler99 (e99_solve) where
+module Euler99 (e99Solve) where
 
 import Data.List (elemIndex)
 import Data.Maybe (fromJust)
 import System.IO (readFile)
 
-e99_solve :: IO Int
-e99_solve = do
+e99Solve :: IO Int
+e99Solve = do
   file <- readFile "src/resources/p099_base_exp.txt"
   let
     pairs  = map (\line -> read ("(" ++ line ++ ")") :: (Float, Float)) . lines $ file

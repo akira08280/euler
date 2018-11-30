@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=107
 --}
 
-module Euler107 (e107_solve) where
+module Euler107 (e107Solve) where
 
 import Data.Graph.Inductive (Gr)
 import Data.Graph.Inductive.Graph (UNode, LEdge, mkGraph, delLEdge, labEdges)
@@ -11,8 +11,8 @@ import Data.List (sortBy)
 import Data.List.Split (splitOn)
 import System.IO (readFile)
 
-e107_solve :: IO Int
-e107_solve = do
+e107Solve :: IO Int
+e107Solve = do
   file <- readFile "src/resources/p107_network.txt"
   let
     list = map (map (\e -> if e == "-" then 0 else read e :: Int) . splitOn ",") . lines $ file

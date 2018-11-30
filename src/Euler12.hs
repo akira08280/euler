@@ -13,12 +13,12 @@
   http://tsumuji.cocolog-nifty.com/tsumuji/2010/01/project-euler-2.html
 --}
 
-module Euler12 (e12_solve) where
+module Euler12 (e12Solve) where
 
 import NumberTheory (divisors)
 
-e12_solve :: Int
-e12_solve = countDivisorTriangle 1 1 500
+e12Solve :: Int
+e12Solve = countDivisorTriangle 1 1 500
 
 countDivisorTriangle :: Int -> Int -> Int -> Int
 countDivisorTriangle d1 n lim

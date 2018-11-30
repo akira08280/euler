@@ -2,9 +2,9 @@
   https://projecteuler.net/problem=114
 --}
 
-module Euler114 (e114_solve) where
+module Euler114 (e114Solve) where
 
 import Block (flexBlockWays)
 
-e114_solve :: Integer
-e114_solve = last . flexBlockWays 3 $ 50
+e114Solve :: Integer
+e114Solve = last . flexBlockWays 3 $ 50

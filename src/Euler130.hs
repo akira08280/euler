@@ -18,13 +18,13 @@
   So 10^(n - 1) = 1 (mod 9n)
 --}
 
-module Euler130 (e130_solve) where
+module Euler130 (e130Solve) where
 
 import MillerRabin (isPrime)
 import Math.NumberTheory.Powers.Modular (powMod)
 
-e130_solve :: Integer
-e130_solve = sum . take limit . filter checkRep . filter (not . isPrime) $ [91, 93..]
+e130Solve :: Integer
+e130Solve = sum . take limit . filter checkRep . filter (not . isPrime) $ [91, 93..]
 
 checkRep :: Integral a => a -> Bool
 checkRep n = (== 1) . powMod 10 (n - 1) $ (9 * n)

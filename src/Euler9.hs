@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=9
 --}
 
-module Euler9 (e9_solve) where
+module Euler9 (e9Solve) where
 
 import Control.Monad (guard)
 
-e9_solve :: Integral a => a
-e9_solve = product . head $ triangles
+e9Solve :: Integral a => a
+e9Solve = product . head $ triangles
 
 triangles :: Integral a => [[a]]
 triangles = do

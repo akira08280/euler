@@ -38,12 +38,12 @@
   2x + 2 = 6n - 2 <- (the length of surrounding side)
 --}
 
-module Euler94 (e94_solve) where
+module Euler94 (e94Solve) where
 
 import Common (third)
 
-e94_solve :: Int
-e94_solve = sum . takeWhile (< 10 ^ 9) . map third . iterate next $ (2, 1, 0)
+e94Solve :: Int
+e94Solve = sum . takeWhile (< 10 ^ 9) . map third . iterate next $ (2, 1, 0)
 
 next :: Integral a => (a, a, a) -> (a, a, a)
 next (x, y, _) = (x', y', length)

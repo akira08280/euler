@@ -18,14 +18,14 @@
      If greater than equal 5, result consists of 19XXX like two of 9.
 --}
 
-module Euler38 (e38_solve) where
+module Euler38 (e38Solve) where
 
 import Data.Bits (setBit)
 import Data.Char (digitToInt)
 import Common (digit, isPandigital, concatIntArray)
 
-e38_solve :: Int
-e38_solve =
+e38Solve :: Int
+e38Solve =
   let
     a = head . filter (\e -> isPandigital (concatIntArray [e, e * 2]) [1..9]) $ [9387,9386..]
   in

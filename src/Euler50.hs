@@ -30,14 +30,14 @@
      (7 + 11 + 13 + 17 + 19 = 67)
 --}
 
-module Euler50 (e50_solve) where
+module Euler50 (e50Solve) where
 
 import Data.Ord (comparing)
 import Data.List (maximumBy)
 import Data.Numbers.Primes (isPrime, primes)
 
-e50_solve :: Int
-e50_solve = snd . maximumBy (comparing fst) . zipWith (sumOfConsecutivePrimes 0) [1..] $ tail f
+e50Solve :: Int
+e50Solve = snd . maximumBy (comparing fst) . zipWith (sumOfConsecutivePrimes 0) [1..] $ tail f
 
 f :: Integral a => [a]
 f = takeWhile (< 10 ^ 6) . scanl (+) 0 $ primes

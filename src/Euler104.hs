@@ -2,12 +2,12 @@
   https://projecteuler.net/problem=104
 --}
 
-module Euler104 (e104_solve) where
+module Euler104 (e104Solve) where
 
 import Common (isPandigital)
 
-e104_solve :: Int
-e104_solve = fst . head . filter panCheck . zip [0..] $ fibsOnTailCut
+e104Solve :: Int
+e104Solve = fst . head . filter panCheck . zip [0..] $ fibsOnTailCut
 
 panCheck :: Integral a => (a, Int) -> Bool
 panCheck (i, e) = isPanTail && isPanHead

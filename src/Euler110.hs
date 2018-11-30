@@ -2,13 +2,13 @@
   https://projecteuler.net/problem=110
 --}
 
-module Euler110 (e110_solve) where
+module Euler110 (e110Solve) where
 
 import Data.Numbers.Primes (primes)
 import Control.Arrow ((&&&))
 
-e110_solve :: Integer
-e110_solve = minimum . map snd . filter ((> 8000000) . fst) . map (countPrimeFactorsByExp &&& calcNumByExp) $ exps 4 20
+e110Solve :: Integer
+e110Solve = minimum . map snd . filter ((> 8000000) . fst) . map (countPrimeFactorsByExp &&& calcNumByExp) $ exps 4 20
 
 countPrimeFactorsByExp :: Integral a => [a] -> a
 countPrimeFactorsByExp = product . map (succ . (*) 2)

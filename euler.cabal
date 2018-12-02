@@ -170,6 +170,7 @@ library
                      , Euler144
                      , Euler145
                      , Euler148
+                     , Euler151
                      , Euler191
                      , Euler301
                      , Euler493

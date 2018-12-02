@@ -82,3 +82,6 @@ isPalindromic :: Int -> Bool
 isPalindromic n = n' == reverse n'
   where
     n' = show n
+
+decimalRound :: (Fractional a, RealFrac a1, Integral b) => a1 -> b -> a
+decimalRound f n = fromInteger (round $ f * (10 ^ n)) / (10.0 ^^ n)

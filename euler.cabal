@@ -17,6 +17,7 @@ library
   hs-source-dirs:      src
                      , src/wiki.haskell.org
                      , src/lib
+                     , test
   exposed-modules:     Common
                      , MillerRabin
                      , SpecialSubset
@@ -175,6 +176,7 @@ library
                      , Euler191
                      , Euler301
                      , Euler493
+                     , Test
   build-depends:       base >= 4.7 && < 5
                      , NumberTheory
                      , containers

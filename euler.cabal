@@ -173,6 +173,7 @@ library
                      , Euler148
                      , Euler151
                      , Euler162
+                     , WikiEuler164
                      , Euler191
                      , Euler301
                      , Euler493

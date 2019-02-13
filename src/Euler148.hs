@@ -1,8 +1,5 @@
 {--
   https://projecteuler.net/problem=148
-
-  This is the best problem I've ever experienced.
-  I'm going to introduce how to solve as soon as possible easily.
 --}
 
 module Euler148 (e148Solve) where

@@ -11,6 +11,6 @@ f :: Integral a => a -> a
 f n = fst . f' n $ (1, 0) 
   where
     f' n (a, b)
-      | n == 0 = (a, b)
+      | n <= 0 = (a, b)
       | odd n  = f' (n `div` 2) (a + b, b)
       | even n = f' (n `div` 2) (a, a + b)

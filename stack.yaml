@@ -46,6 +46,7 @@ extra-deps:
 - extra-1.6.5
 - arithmoi-0.7.0.0
 - happy-1.19.9
+- binary-0.8.7.0
 
 # Override default flag values for local packages and extra-deps
 flags: {}

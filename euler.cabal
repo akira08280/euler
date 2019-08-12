@@ -179,6 +179,7 @@ library
                      , Euler191
                      , Euler301
                      , Euler493
+                     , Euler500
                      , Test
   build-depends:       base >= 4.7 && < 5
                      , NumberTheory

@@ -25,7 +25,7 @@ sortTable = sortTable' 1
     sortTable' k pss = min:sortTable' m generated
       where
         -- Add 1 to get the next row for comparison.
-        (i, min) = minIndex . extract (succ k) $ pss
+        (i, min) = minIndex . reds (succ k) $ pss
         {--
          - The value(i) returned by "minIndex" starts at 0 because of the array index.
          - Thus it is necessary to add 1 to match the argument of "take."
@@ -33,8 +33,8 @@ sortTable = sortTable' 1
         m = max k (succ i)
         generated = generate min pss
 
-extract :: Ord a => Int -> [[a]] -> [a]
-extract k = map head . take k
+reds :: Ord a => Int -> [[a]] -> [a]
+reds k = map head . take k
 
 minIndex :: Ord a => [a] -> (Int, a)
 minIndex xs = (index, min)

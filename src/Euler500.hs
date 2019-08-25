@@ -24,7 +24,12 @@ sortTable = sortTable' 1
   where
     sortTable' k pss = min:sortTable' m generated
       where
+        -- Add 1 to get the next row for comparison.
         (i, min) = minIndex . extract (succ k) $ pss
+        {--
+         - The value(i) returned by "minIndex" starts at 0 because of the array index.
+         - Thus it is necessary to add 1 to match the argument of "take."
+        --}
         m = max k (succ i)
         generated = generate min pss
 

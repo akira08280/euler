@@ -15,7 +15,7 @@ e164Solve = sum $ do
 
 memo :: Map (Integer, Integer, Integer) Integer
 memo = M.fromList $ do
-  digits <- [0..20]
+  digits <- [0..19]
   prev <- [0..9]
   prevprev <- [0..9]
   let

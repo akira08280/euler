@@ -2,7 +2,7 @@
   https://projecteuler.net/problem=174
 --}
 
-module Euler174 (e174Solve, f) where
+module Euler174 (e174Solve) where
 
 import Data.List (sort, group)
 

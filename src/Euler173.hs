@@ -45,7 +45,10 @@
 module Euler173 (e173Solve) where
 
 e173Solve :: Integer
-e173Solve = sum . map (\m -> tiles `div` (4 * m) - m) $ [1..upper]
+e173Solve = sum . map f $ [1..upper]
+
+f :: Integer -> Integer
+f m = tiles `div` (4 * m) - m
 
 upper :: Integer
 upper = ceiling . sqrt . fromIntegral $ tiles `div` 4

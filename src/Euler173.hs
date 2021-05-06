@@ -28,13 +28,4 @@
 module Euler173 (e173Solve) where
 
 e173Solve :: Integer
-e173Solve = sum . map f $ [1..upper]
-
-f :: Integer -> Integer
-f m = tiles `div` (4 * m) - m
-
-upper :: Integer
-upper = ceiling . sqrt . fromIntegral $ tiles `div` 4
-
-tiles :: Integral a => a
-tiles = 10 ^ 6
+e173Solve = sum . map (\m -> 250000 `div` m - m) $ [1..499]

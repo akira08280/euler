@@ -1,23 +1,6 @@
 {--
   https://projecteuler.net/problem=173
 
-  n,m -> *********
-  n   -> *       *
-  n   -> *       *
-  n   -> *       *
-  n   -> *       *
-  n   -> *       *
-  n   -> *       *
-  n   -> *       *
-  n   -> *********
-
-  n,m ->  ******
-  n,m ->  ******
-  n   ->  **  **
-  n   ->  **  **
-  n   ->  ******
-  n   ->  ******
-
   Let n be outer tiles count and let m be the outer layer count.
   Therefore the formula to count all tiles is
 

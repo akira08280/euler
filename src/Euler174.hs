@@ -18,10 +18,7 @@ module Euler174 (e174Solve) where
 import Data.List (sort, group)
 
 e174Solve :: Int
-e174Solve = length . filter (< 11) . map length . group . sort $ f
-
-f :: [Integer]
-f = do
+e174Solve = length . filter (< 11) . map length . group . sort $ do
   k <- [1..500]
   let
     start = succ k
